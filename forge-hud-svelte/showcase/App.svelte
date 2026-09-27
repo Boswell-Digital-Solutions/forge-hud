@@ -14,7 +14,7 @@
   let model = $derived(projectState(snapshot, { version: 1, owner: 'simulator', mappings: ROLES.map(r => ({ source: skin, context: 'component-proof', nativeState: r, role: r })) }, profile));
 </script>
 <main>
-  <header><div class="eyebrow">BOSWELL DIGITAL SOLUTIONS / FORGEHUD</div><h1>Clarity at every state.</h1><p>Four presentation surfaces. One shared grammar.</p><strong class="simulation">SIMULATED · NO LIVE CONNECTION · ACTIONS DISABLED</strong></header>
+  <header><div class="eyebrow">BOSWELL DIGITAL SOLUTIONS / FORGEHUD</div><h1>Every state, clearly.</h1><p>Explore how progress, evidence, and authority appear across your workspace.</p><strong class="simulation">SIMULATED · NO LIVE CONNECTION · ACTIONS DISABLED</strong></header>
   <section class="controls" aria-label="Simulator controls">
     <label>Profile<select bind:value={skin}><option value="smith">SMITH · Operator</option><option value="forge-command">Forge Command · Operator</option><option value="authorforge">AuthorForge · Creator</option><option value="reviewer-simulated">Reviewer · Simulated</option></select></label>
     <label>Process state<select bind:value={role}>{#each [...ROLES, 'unavailable'] as value}<option>{value}</option>{/each}</select></label>

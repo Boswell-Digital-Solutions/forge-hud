@@ -1,0 +1,22 @@
+{
+  "purpose": "Presentation-only polish; retain roles, source identity, simulation disclosure and authority constraints",
+  "allowlist": [
+    "forge-hud-svelte/src/theme/grammar.css",
+    "forge-hud-svelte/src/components/ForgeStatusCapsule.svelte",
+    "forge-hud-svelte/src/components/ForgeEvidenceSeal.svelte",
+    "forge-hud-svelte/src/components/ForgeAuthorityGate.svelte",
+    "forge-hud-svelte/src/components/ForgeHudFooter.svelte",
+    "forge-hud-svelte/src/components/ForgeHudRail.svelte",
+    "forge-hud-svelte/showcase/style.css",
+    "forge-hud-svelte/showcase/Adapters.svelte",
+    "forge-hud-svelte/showcase/App.svelte",
+    "forge-hud-svelte/tests/browser/adapters.spec.ts",
+    "forge-hud-svelte/tests/browser/surfaces.spec.ts",
+    "forge-hud-svelte/tests/browser/adapters.spec.ts-snapshots/operator-linux.png",
+    "forge-hud-svelte/tests/browser/adapters.spec.ts-snapshots/plain-linux.png",
+    "forge-hud-svelte/tests/browser/surfaces.spec.ts-snapshots/operator-linux.png",
+    "forge-hud-svelte/tests/browser/surfaces.spec.ts-snapshots/plain-linux.png",
+    "docs/plans/forge-ui-grammar/VISUAL-POLISH.md",
+    "docs/plans/forge-ui-grammar/visual-polish-scope.json"
+  ]
+}

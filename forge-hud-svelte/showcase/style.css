@@ -1,1 +1,28 @@
-* { box-sizing: border-box; } body { margin: 0; background: #0b0f14; color: #f8fafc; font-family: system-ui, sans-serif; } main { max-width: 1120px; margin: auto; padding: 56px 32px; } header { margin-bottom: 36px; } .eyebrow { font-size: 12px; letter-spacing: .15em; color: #7dd3fc; } h1 { font-size: clamp(32px, 5vw, 52px); letter-spacing: -.04em; margin: 18px 0 10px; } header p { color: #cbd5e1; font-size: 18px; } .simulation { display: inline-block; border: 1px solid #64748b; padding: 8px 12px; margin-top: 14px; font-size: 11px; letter-spacing: .08em; } .controls { display: flex; flex-wrap: wrap; align-items: end; gap: 18px; padding: 24px 0; border-block: 1px solid #334155; } label { display: grid; gap: 8px; font-size: 13px; color: #cbd5e1; } select,button { font: inherit; border: 1px solid #64748b; background: #111418; color: #f8fafc; border-radius: 4px; padding: 9px; } .toggle { display: flex; align-items: center; padding: 8px 0; } :focus-visible { outline: 3px solid #7dd3fc; outline-offset: 3px; } .proof { display: grid; grid-template-columns: 1.2fr 1fr; gap: 28px; margin-top: 28px; } h2 { color: #cbd5e1; font-size: 12px; font-weight: 500; text-transform: uppercase; letter-spacing: .12em; margin-bottom: 16px; } .authority { grid-column: 1 / -1; } footer { color: #cbd5e1; font-size: 12px; line-height: 1.8; margin-top: 32px; max-width: 700px; } @media (max-width: 650px) { main { padding: 28px 16px; } .proof { grid-template-columns: 1fr; } .authority { grid-column: auto; } select { max-width: 100%; } }
+* { box-sizing: border-box; }
+body { margin: 0; background: #0b1017; color: #f8fafc; font-family: system-ui, sans-serif; }
+main { max-width: 1120px; margin: auto; padding: 36px 32px; }
+main > header { margin-bottom: 24px; padding-bottom: 24px; border-bottom: 1px solid #334155; }
+.eyebrow { font-size: 11px; font-weight: 600; letter-spacing: .15em; color: #7dd3fc; }
+h1 { font-size: clamp(28px, 4vw, 38px); font-weight: 600; letter-spacing: -.035em; line-height: 1.15; margin: 16px 0 10px; }
+main > header p { color: #cbd5e1; font-size: 15px; margin: 0; line-height: 1.6; }
+.simulation { display: inline-block; color: #cbd5e1; background: #17222f; border: 1px solid #526174; border-radius: 4px; padding: 6px 9px; margin-top: 16px; font-size: 10px; font-weight: 500; letter-spacing: .06em; }
+.controls { display: flex; flex-wrap: wrap; align-items: end; gap: 12px 20px; padding: 16px; background: #101822; border: 1px solid #334155; border-radius: 8px; }
+.controls label { display: grid; gap: 7px; font-size: 12px; color: #cbd5e1; }
+.controls select,.controls button { font: inherit; font-size: 13px; border: 1px solid #526174; background: #0b1017; color: #f8fafc; border-radius: 4px; padding: 9px 10px; }
+.controls button { cursor: pointer; }
+.controls button:hover { border-color: #7dd3fc; }
+.controls .toggle { display: flex; align-items: center; gap: 7px; min-height: 36px; }
+.controls input { accent-color: #7dd3fc; }
+:focus-visible { outline: 3px solid #7dd3fc; outline-offset: 3px; }
+.proof { display: grid; grid-template-columns: 1fr 1fr; align-items: start; gap: 24px; margin-top: 24px; }
+h2 { color: #cbd5e1; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: .11em; margin: 24px 0 12px; }
+.proof h2 { margin-top: 0; }
+.authority { grid-column: 1 / -1; }
+main > footer:not(.forge-ui) { color: #cbd5e1; font-size: 12px; line-height: 1.8; padding-top: 20px; margin-top: 24px; border-top: 1px solid #334155; }
+@media (max-width: 650px) {
+  main { padding: 24px 16px; }
+  .proof { grid-template-columns: 1fr; gap: 20px; }
+  .authority { grid-column: auto; }
+  .controls { gap: 12px; }
+  .controls select { max-width: 100%; }
+}
