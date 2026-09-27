@@ -1,0 +1,34 @@
+{
+  "observed": "2026-09-27",
+  "basis": "Read-only local checkout observations; no remote freshness claim. Synthetic R1 fixtures reused.",
+  "sources": [
+    {
+      "repository": "smith",
+      "revision": "93d187029885a300f3bfaa5d066e34c9b2de23f4",
+      "path": "src/lib/components/hud/StatusFooter.svelte",
+      "sha256": "db4e4c8a8f7940ad3c7985566b0300433c92cb9ceaddd092aa5add00c1003b6c",
+      "matchesCommit": true
+    },
+    {
+      "repository": "smith",
+      "revision": "93d187029885a300f3bfaa5d066e34c9b2de23f4",
+      "path": "src/lib/components/hud/NextActionCard.svelte",
+      "sha256": "88dbadf4c9e641598ace85f3a89f4e6df52bbf1bb8065edda6c3418b9bc9efd3",
+      "matchesCommit": true
+    },
+    {
+      "repository": "smith",
+      "revision": "93d187029885a300f3bfaa5d066e34c9b2de23f4",
+      "path": "src/lib/stores/pipeline.svelte.ts",
+      "sha256": "1eb6356e0151139c06ccb2468dc673e4ca21f157fa98e0ed452e453aca8f445c",
+      "matchesCommit": true
+    },
+    {
+      "repository": "command",
+      "revision": "445e5363d40627da32cce42935269bfc13059730",
+      "path": "src/lib/hud/hudLanes.ts",
+      "sha256": "82633c6b90b3bf41a1e4beee39d38fbfc77a68b2267991c10f4fc6dfe5d0a8dc",
+      "matchesCommit": true
+    }
+  ]
+}

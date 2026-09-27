@@ -4,7 +4,7 @@
 
   <br/>
 
-  [![Stage: R2 Proof](https://img.shields.io/badge/Stage-R2%20Proof-ea580c?style=flat-square&logo=target)](#unified-delivery-sequence)
+  [![Stage: R3 Adapters](https://img.shields.io/badge/Stage-R3%20Adapters-ea580c?style=flat-square&logo=target)](#unified-delivery-sequence)
   [![Framework](https://img.shields.io/badge/UI-Svelte%205-ff3e00?style=flat-square&logo=svelte)](#package-and-contracts)
   [![License: MIT](https://img.shields.io/badge/License-MIT-0284c7?style=flat-square)](#)
   [![Master Caution](https://img.shields.io/badge/Emergency%20Halt-Authoritative-22c55e?style=flat-square)](#)
@@ -32,8 +32,8 @@ Repository: `Boswell-Digital-Solutions/forge-hud`.
 
 ForgeHUD is a shared governance-presentation library for Forge applications.
 Current code snapshot — 2026-09-27: the private [Svelte package](forge-hud-svelte/README.md)
-implements validated contracts, four Svelte presentation surfaces and a clearly
-simulated showcase. Live application integration remains planned.
+implements validated contracts, four Svelte primitives, footer/rail/lock/Next Action
+adapters and clearly simulated showcases. Live application integration remains planned.
 
 ## Documentation Contract
 
@@ -62,6 +62,8 @@ local documentation checks do not claim ecosystem-wide certification.
 ## Implementation planning
 
 - [Reconciled ForgeHUD and UI Grammar plan](docs/plans/forge-ui-grammar/RECONCILED-PLAN.md)
+- [R3 results](docs/plans/forge-ui-grammar/R3-RESULT.md)
+- [R3 scope](docs/plans/forge-ui-grammar/r3-scope.json)
 - [R2 results](docs/plans/forge-ui-grammar/R2-RESULT.md)
 - [R2 file scope](docs/plans/forge-ui-grammar/r2-scope.json)
 - [R1 file scope](docs/plans/forge-ui-grammar/r1-scope.json)

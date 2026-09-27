@@ -35,3 +35,8 @@ application-source observations only.
 
 Central documentation registry admission is pending. Local verification does not
 claim a passed ecosystem-wide compliance gate.
+
+R3 adapter results and refreshed local source hashes are recorded under
+`docs/plans/forge-ui-grammar/`. The suite now includes 99 contract tests and 12
+Chromium tests; R3 adds two-contract meaning, halt precedence, single announcement
+ownership, footer keyboard details, mobile layout and two adapter visual baselines.

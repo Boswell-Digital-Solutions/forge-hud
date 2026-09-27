@@ -122,8 +122,8 @@ missing source files in this repo and must not be treated as locally executable 
 
 ## 4. Delivery status and plan relationship
 
-Current audited snapshot — 2026-09-27: R1 contracts and R2 Svelte proof surfaces,
-simulator and Chromium checks are implemented. Consumer migration has not started.
+Current audited snapshot — 2026-09-27: R1 contracts, R2 Svelte primitives and R3
+single-context HUD adapters with simulated Chromium proof are implemented. Consumer migration has not started.
 Human screen-reader review remains open before live adoption. Documentation build success is not runtime or
 full GATE-00 acceptance.
 
@@ -136,7 +136,7 @@ files. The source Google Doc has not been edited by this repository setup.
 | R0 | Source inventory and reconciliation | Local planning evidence recorded; historical full-scope GATE-00 remains unresolved |
 | R1 | Svelte package, projection/profile validation, tokens and motion contract | Merged and locally verified |
 | R2 | Four proof surfaces and explicitly simulated showcase | Implemented with automated browser proof; human screen-reader review pending |
-| R3 | Bounded HUD presentation adapters | Planned, not implemented |
+| R3 | Bounded HUD presentation adapters | Implemented with two source contracts and two skins; no live store bindings |
 | R4 | SMITH and Forge Command operator pilots | Planned, not implemented |
 | R5 | AuthorForge creator proof and reviewer profile | Planned, not implemented |
 | R6 | Regression evidence and bounded rollout | Planned, not implemented |
@@ -216,6 +216,11 @@ application-source observations only.
 
 Central documentation registry admission is pending. Local verification does not
 claim a passed ecosystem-wide compliance gate.
+
+R3 adapter results and refreshed local source hashes are recorded under
+`docs/plans/forge-ui-grammar/`. The suite now includes 99 contract tests and 12
+Chromium tests; R3 adds two-contract meaning, halt precedence, single announcement
+ownership, footer keyboard details, mobile layout and two adapter visual baselines.
 
 ---
 
