@@ -19,6 +19,7 @@ npm ci --ignore-scripts
 npm run check
 npm test
 npm run build
+npm run test:browser
 ```
 
 R1 has behavior-focused contract tests and a built-package import check. Further proof
@@ -27,8 +28,9 @@ degradation, source/severity separation, timer suppression, keyboard/focus behav
 reduced motion, high contrast and equivalent meaning across skins.
 
 R1 validation results are recorded in `docs/plans/forge-ui-grammar/R1-RESULT.md`.
-No screen-reader proof, rendered visual regression matrix or live application
-integration is claimed. Source-lock checks in the planning evidence describe earlier
+R2 results are recorded in `docs/plans/forge-ui-grammar/R2-RESULT.md`, including
+8 Chromium tests and operator/plain screenshots. No human screen-reader proof or
+live application integration is claimed. Source-lock checks in the planning evidence describe earlier
 application-source observations only.
 
 Central documentation registry admission is pending. Local verification does not

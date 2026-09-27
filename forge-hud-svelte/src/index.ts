@@ -4,3 +4,7 @@ export { motionFor } from './grammar/motion.js';
 export type { MotionSpec } from './grammar/motion.js';
 export { validateProfile, validateMapping } from './grammar/profiles.js';
 export { validateSnapshot, projectState, announcementChanged } from './grammar/validate.js';
+export { default as ForgeProcessGlyph } from './components/ForgeProcessGlyph.svelte';
+export { default as ForgeStatusCapsule } from './components/ForgeStatusCapsule.svelte';
+export { default as ForgeEvidenceSeal } from './components/ForgeEvidenceSeal.svelte';
+export { default as ForgeAuthorityGate } from './components/ForgeAuthorityGate.svelte';

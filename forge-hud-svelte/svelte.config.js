@@ -1,2 +1,2 @@
-// Components arrive in R2; no application adapter or backend integration.
-export default {};
+import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
+export default { preprocess: vitePreprocess() };

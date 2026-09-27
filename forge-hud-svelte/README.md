@@ -1,8 +1,8 @@
-# ForgeHUD Svelte package — R1 contracts
+# ForgeHUD Svelte package — R2 presentation proof
 
 Private package `@forgehud/svelte`, version 0.1.0. This is a TypeScript presentation
-foundation for Svelte 5 consumers. **No Svelte components or live application
-integration are included yet.** The name is reserved locally by this private package;
+foundation plus four Svelte 5 presentation components and a simulated showcase.
+Live application integration remains deferred. The name is reserved locally by this private package;
 no npm publication or registry ownership is claimed.
 
 ## Build and check
@@ -18,8 +18,8 @@ npm run build
 
 The build emits ESM and declarations to `dist/`, plus scoped CSS exported as
 `@forgehud/svelte/theme.css`. `dist/` is generated and not committed. Build before
-packing or importing the package. `svelte.config.js` is a placeholder configuration
-for the next component slice; no Svelte compilation is required by R1.
+packing or importing the package. Svelte components and their declarations are packaged by `svelte-package`.
+Consumers need a Svelte-aware bundler; these are not precompiled DOM modules.
 
 ## Projection boundary
 
@@ -75,3 +75,29 @@ The boundary is JSON data, not arbitrary class instances, proxies or hostile get
 See [authority boundaries](docs/authority-boundary.md) and the
 [accessibility matrix](docs/accessibility-matrix.md). Source-grounded fixtures are
 synthetic and explicitly marked; the reviewer fixture has no bound Tarcie runtime.
+
+## Components and simulator
+
+Import `ForgeProcessGlyph`, `ForgeStatusCapsule`, `ForgeEvidenceSeal`, and
+`ForgeAuthorityGate` from `@forgehud/svelte`, plus `@forgehud/svelte/theme.css`.
+All accept a `model` returned by `projectState`; do not construct or mutate models
+manually. The status capsule includes the process glyph. Supply `elapsed` as a
+formatted string; it stays outside the announcement region. When multiple capsules
+show the same process, set `announce={false}` on duplicates.
+
+The authority gate accepts application-owned `actions: { id, label }[]` and an
+`onrequest(id)` callback. Only IDs retained by the model can request the callback;
+missing handlers and suppressed states render disabled native buttons. The callback
+must revalidate authorization in the existing application backend. It is not an
+approval event, grant, evidence receipt or new action resolver.
+
+Run `npm run dev` for the simulated SMITH, Forge Command, AuthorForge and reviewer
+profiles. All showcase actions remain disabled. The isolated browser-test fixture
+uses synthetic non-simulation inputs solely to exercise a local counter callback;
+it has no backend connection.
+
+Run `npx playwright install chromium` once if Chromium is unavailable, then
+`npm run test:browser`. Committed Linux Chromium screenshots cover operator/plain
+profiles. Deliberate visual changes require reviewing regenerated baselines using
+`npm run test:browser -- --update-snapshots`. Automated accessibility checks do not
+replace a human screen-reader review, which remains open before live adoption.

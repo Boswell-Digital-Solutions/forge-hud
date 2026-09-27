@@ -1,7 +1,8 @@
-# R1 accessibility and motion contract
+# Accessibility and motion contract
 
-R1 validates display data and supplies tokens. It does not yet render DOM. Component,
-keyboard, screen-reader, visual and contrast acceptance remains required in R2.
+R2 renders four proof surfaces. Chromium checks cover keyboard focus, reduced
+motion, live-region timer exclusion, high contrast, forced colors, and two visual
+baselines. Human screen-reader review remains outstanding.
 
 | Role | Standard motion | Reduced motion | Required non-motion meaning |
 | --- | --- | --- | --- |
@@ -23,8 +24,8 @@ Critical severity suppresses motion regardless of operational role. Motion helpe
 return copies; renderers cannot mutate future motion decisions through a returned object.
 CSS is scoped to `.forge-ui`; source accent and semantic colors have separate tokens.
 Consumers set `data-density`, `data-motion` and `data-contrast` from validated profiles.
-Forced-colors uses system surfaces/text. Neither the CSS nor model alone proves
-contrast compliance: R2 must render and measure actual combinations.
+Forced-colors uses system surfaces/text. Axe reports no violations for the rendered operator and plain baseline scenarios.
+This is bounded evidence, not full compliance certification.
 
 The model requests polite ordinary announcements and assertive explicit emergency
 halts. `announcementChanged` compares semantic text/politeness, not observation time.
@@ -39,3 +40,7 @@ stealing, timer quietness in a real live region, and screen-reader review. Any d
 control must be a separately focusable element; status capsules are not implicitly
 clickable. Bind animation only to elements marked `data-forge-motion`; keep semantic
 labels outside that animation hook. Simulation marking must remain visible and spoken.
+
+Simulated halts use polite live announcements; only non-simulated explicit halts
+use assertive announcements. Status owns the shared live region; evidence and
+authority panels retain readable labels without duplicate live announcements.

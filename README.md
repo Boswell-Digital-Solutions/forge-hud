@@ -4,7 +4,7 @@
 
   <br/>
 
-  [![Stage: R1 Contracts](https://img.shields.io/badge/Stage-R1%20Contracts-ea580c?style=flat-square&logo=target)](#unified-delivery-sequence)
+  [![Stage: R2 Proof](https://img.shields.io/badge/Stage-R2%20Proof-ea580c?style=flat-square&logo=target)](#unified-delivery-sequence)
   [![Framework](https://img.shields.io/badge/UI-Svelte%205-ff3e00?style=flat-square&logo=svelte)](#package-and-contracts)
   [![License: MIT](https://img.shields.io/badge/License-MIT-0284c7?style=flat-square)](#)
   [![Master Caution](https://img.shields.io/badge/Emergency%20Halt-Authoritative-22c55e?style=flat-square)](#)
@@ -31,9 +31,9 @@
 Repository: `Boswell-Digital-Solutions/forge-hud`.
 
 ForgeHUD is a shared governance-presentation library for Forge applications.
-Current code snapshot — 2026-09-27: the private [R1 package](forge-hud-svelte/README.md)
-implements projection/profile validation, motion contracts and tokens. Svelte
-components and live application integration remain planned.
+Current code snapshot — 2026-09-27: the private [Svelte package](forge-hud-svelte/README.md)
+implements validated contracts, four Svelte presentation surfaces and a clearly
+simulated showcase. Live application integration remains planned.
 
 ## Documentation Contract
 
@@ -53,15 +53,17 @@ bash doc/system/BUILD.sh
 python3 scripts/check_docs.py
 ```
 
-Documentation needs no package installation. For R1, run `npm ci --ignore-scripts`,
+Documentation needs no package installation. For the package, run `npm ci --ignore-scripts`,
 `npm run check`, `npm test` and `npm run build` in `forge-hud-svelte/`.
-There is no application startup command yet.
+Run `npm run dev` for the simulator and `npm run test:browser` for Chromium proof.
 Prefix `fhd` and the documentation surface await central Forge registry admission;
 local documentation checks do not claim ecosystem-wide certification.
 
 ## Implementation planning
 
 - [Reconciled ForgeHUD and UI Grammar plan](docs/plans/forge-ui-grammar/RECONCILED-PLAN.md)
+- [R2 results](docs/plans/forge-ui-grammar/R2-RESULT.md)
+- [R2 file scope](docs/plans/forge-ui-grammar/r2-scope.json)
 - [R1 file scope](docs/plans/forge-ui-grammar/r1-scope.json)
 - [Source evidence manifest](docs/plans/forge-ui-grammar/evidence/source-lock.json)
 - [Documentation metadata](doc/documentation-manifest.json)
