@@ -18,3 +18,5 @@ export { default as ForgeNextAction } from './components/ForgeNextAction.svelte'
 export { default as ForgeBackendActivity } from './components/ForgeBackendActivity.svelte';
 export { activityState, PROVIDERS } from './adapters/activity.js';
 export type { BackendActivity, ProviderId } from './adapters/activity.js';
+export { ACTIVITY_PHASES, parseObservation, acceptObservation, observationKey, projectObservation } from './adapters/observations.js';
+export type { ActivityScope, ActivityPhase, ActivityObservation } from './adapters/observations.js';
