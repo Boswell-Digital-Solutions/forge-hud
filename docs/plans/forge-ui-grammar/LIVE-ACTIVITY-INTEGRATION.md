@@ -61,3 +61,12 @@ business-system repository, not the public app-local support counterpart.
 The package already supports producer-supplied activity metadata and all approved
 status treatments. This audit does not create a new upstream contract or claim
 that live acceptance is complete.
+
+## Origin-aware follow-on
+
+The user clarified that origins include SMITH, Command, Hephaestus, Beta,
+tarcie-reviewer, Author-Forge and other public-facing apps. The next slice therefore
+uses a shared presentation boundary rather than binding to a single originating
+app. The [origin contract and transport obligations](../../../forge-hud-svelte/docs/origin-activity.md)
+record the approved design and implemented pure adapter. The original transport
+gaps above remain open; the adapter is not a live service or an authorization layer.

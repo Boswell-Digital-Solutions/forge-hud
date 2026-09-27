@@ -117,3 +117,12 @@ HUD surfaces. See [backend activity](docs/backend-activity.md) for the contract,
 state precedence, reduced-motion behavior and provider asset provenance.
 The workspace preview at `/adapters.html` includes backend, provider and state
 controls. These are simulated; no backend telemetry or consumer rollout is implied.
+
+## Origin-aware observation boundary
+
+The [origin activity contract](docs/origin-activity.md) covers SMITH, Command,
+Hephaestus, Beta, tarcie-reviewer, Author-Forge and other origins. Validated,
+scoped observations can project into existing HUD surfaces through
+`projectObservation`. Ordering guards are provided separately. This is a display
+adapter proposal; authenticated feeds, producer adoption and live acceptance
+remain open. Client scope checks do not implement tenant authorization.
