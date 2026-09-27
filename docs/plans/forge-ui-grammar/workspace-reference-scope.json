@@ -1,0 +1,16 @@
+{
+  "purpose": "Implement the supplied workspace visual reference in the Svelte showcase",
+  "allowlist": [
+    "forge-hud-svelte/showcase/Adapters.svelte",
+    "forge-hud-svelte/showcase/adapters.ts",
+    "forge-hud-svelte/showcase/workspace.css",
+    "forge-hud-svelte/showcase/fonts/Archivo.ttf",
+    "forge-hud-svelte/showcase/fonts/OFL.txt",
+    "forge-hud-svelte/tests/browser/adapters.spec.ts",
+    "forge-hud-svelte/tests/browser/adapters.spec.ts-snapshots/operator-linux.png",
+    "forge-hud-svelte/tests/browser/adapters.spec.ts-snapshots/plain-linux.png",
+    "forge-hud-svelte/tests/browser/adapters.spec.ts-snapshots/dark-linux.png",
+    "docs/plans/forge-ui-grammar/WORKSPACE-REFERENCE.md",
+    "docs/plans/forge-ui-grammar/workspace-reference-scope.json"
+  ]
+}
