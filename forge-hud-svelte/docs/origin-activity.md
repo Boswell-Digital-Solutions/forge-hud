@@ -174,3 +174,31 @@ Tests cover concurrent work, snapshots, gaps, replay, terminal state protection,
 disconnect freshness, late callbacks, audience mismatch, revocation and memory
 bounds. These are consumer tests, not proof of server-side tenant isolation or
 live connectivity.
+
+## Visible consumer integration
+
+`ForgeActivityList` renders one authorized scope. Pass `observations` from
+`session.observations()`, `status` from `session.status`, the trusted `scope`, a
+validated display `profile`, and the consumer clock (`nowMs`, `staleAfterMs`).
+Publish fresh reactive observations/status after each session callback; the session
+itself is intentionally framework-neutral and is not a Svelte reactive store.
+Update `nowMs` on the host's freshness timer, and clean up that timer/subscription
+on unmount. Do not remount the session on every render.
+
+The component rechecks record shape/scope before display and suppresses all rows
+when revoked. Ordering and terminal guards still belong to the session: passing
+unaccepted observations directly forfeits those protections. Rows include origin,
+task, request and attempt, backend/provider identity, last reported phase and time,
+and explicit simulation/evidence labels. Routed records do not animate. Unknown
+provider IDs remain visible as text alongside the generic icon. No action controls
+or authority grants are generated. Empty reports mean unknown activity, not idle.
+The polite feed summary announces connection/count changes without reading every
+clock tick aloud.
+
+Visit `/activity.html` in the local showcase, or open **Details → Explore origin
+activity** from `/adapters.html`. The business operator, Author-Forge session, and
+assigned review examples are separate synthetic audiences. Selecting one revokes
+and replaces the previous session. The 15-second expiry is a preview setting, not
+an agreed production heartbeat budget. Browser tests exercise the real session →
+projection → component path, mobile layouts, accessibility and reduced motion.
+These fixtures do not establish server-side isolation or live connectivity.

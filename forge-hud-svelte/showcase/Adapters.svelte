@@ -105,5 +105,5 @@
 <div class="sr-only" aria-live="polite" aria-atomic="true">{model.announcement.text} {backend}. {provider ? PROVIDERS[provider].label : 'Unknown provider'}.</div>
 <footer class="statusbar" aria-label="HUD footer" style={`--tone:var(--t-${tone})`}>
   <div class="row"><span class="seg sb-sim">Simulated</span><span class="seg">{scenario.source}</span><span class="seg strong"><ForgeBackendActivity {model} {activity} /></span><span class="seg">{model.locked ? 'Locked' : 'Unlocked'}</span><span class="seg">Unverified</span><span class="seg">Session {time}</span><button class="details" aria-expanded={details} aria-controls="drawer" onclick={() => details = !details}>Details</button></div>
-  <div class="drawer" id="drawer" hidden={!details}>Synthetic source: {scenario.source} / {scenario.context}. {model.reason} No live authority, release, or signed receipt. Session time is preview time, not evidence freshness.</div>
+  <div class="drawer" id="drawer" hidden={!details}><a href="/activity.html" style="color:var(--t-attention)">Explore origin activity</a>. Synthetic source: {scenario.source} / {scenario.context}. {model.reason} No live authority, release, or signed receipt. Session time is preview time, not evidence freshness.</div>
 </footer>
