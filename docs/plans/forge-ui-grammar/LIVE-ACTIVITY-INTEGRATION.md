@@ -70,3 +70,10 @@ uses a shared presentation boundary rather than binding to a single originating
 app. The [origin contract and transport obligations](../../../forge-hud-svelte/docs/origin-activity.md)
 record the approved design and implemented pure adapter. The original transport
 gaps above remain open; the adapter is not a live service or an authorization layer.
+
+The next consumer slice implements `createActivitySession`: bounded per-scope
+memory, snapshot/update ordering, disconnect freshness, reconnect generations and
+revocation. It is transport-neutral. Inspection of the existing forge-telemetry
+README confirms that library owns producer emission and DataForge owns ingestion
+and durable identity; neither should be replaced by a new ForgeHUD ingestion API.
+The required authorized read subscription still needs owner-side implementation.

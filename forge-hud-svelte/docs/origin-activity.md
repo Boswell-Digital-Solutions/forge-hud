@@ -112,3 +112,65 @@ uncertainty, discussed by
 [Chandra and Toueg (1996)](https://www.cs.princeton.edu/courses/archive/fall07/cos518/papers/unreliable.pdf).
 These sources support the design principles; they do not prescribe this schema,
 its timeout or its security model.
+
+## Scoped in-memory consumer session
+
+`createActivitySession(trustedScope, maxEntries = 128)` manages a single authorized
+scope in memory. It does not authenticate, fetch, subscribe, persist, poll or emit
+provider requests. An authenticated transport adapter supplies its callbacks:
+
+```ts
+const session = createActivitySession(trustedScope);
+const connection = session.begin();
+// From the authorized feed, never from a generation-starting request:
+connection.snapshot(snapshot.observations, snapshot.revision);
+connection.update(update.observation, update.revision);
+// Transport disconnect/error:
+connection.disconnect();
+// Logout, revocation or switching scope:
+session.revoke();
+```
+
+Each `begin()` invalidates earlier connection callbacks and enters synchronizing
+state. Existing records remain visible but project as stale until a complete
+snapshot is accepted. Snapshot validation is atomic: malformed, duplicate,
+cross-scope or oversized batches cannot partially replace state.
+
+The proposed transport must supply **scope-local, monotonic, contiguous feed
+revisions**. These are separate from per-attempt observation sequences. They must
+not be generated from browser arrival order, timestamps or a global stream whose
+filtered events introduce gaps. A snapshot revision is a high-water mark, and its
+records are the entire authorized set at that point. Same-revision snapshots must
+match the prior set; newer snapshots may remove records. The server must not
+reintroduce expired/deleted attempts through stale replay. Revisions must remain
+meaningful across reconnects; a server revision reset requires a new explicitly
+initialized session rather than weakening replay checks.
+
+Duplicates/older update revisions are ignored. A gap, invalid update, terminal
+regression or capacity overflow enters `resync-required`. Further updates are
+rejected until `begin()` and a valid fresh snapshot. No active work is silently
+evicted. The maximum is configurable from 1 to 4096 records. The transport adapter
+must bound incoming byte/frame size before parsing; this count limit alone is not
+network denial-of-service protection.
+
+`session.project(profile, nowMs, staleAfterMs)` returns separately keyed HUD models
+for concurrent attempts. Consumers call it through their own reactive lifecycle
+and freshness clock. `observations()` returns detached records. `revoke()` clears
+all records, rejects all old callbacks, and permanently closes the session.
+Create a new session for a new authorized scope. Native/network subscription
+cleanup remains the transport adapter's responsibility.
+
+### Existing telemetry ownership
+
+The inspected `forge-telemetry` README identifies it as the canonical producer
+library for `ForgeEvent.v1`, with DataForge owning persistence, canonical ingestion
+and durable identity. It is not a ready-made HUD read subscription. The native
+TypeScript/Rust producer surfaces are described as candidates. This session API
+therefore does not invent a parallel ingestion endpoint or claim compatibility
+with a deployed snapshot/update service. Map the authorized read model into this
+boundary only after its delivery/replay contract is established with its owner.
+
+Tests cover concurrent work, snapshots, gaps, replay, terminal state protection,
+disconnect freshness, late callbacks, audience mismatch, revocation and memory
+bounds. These are consumer tests, not proof of server-side tenant isolation or
+live connectivity.
