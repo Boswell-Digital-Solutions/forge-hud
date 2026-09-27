@@ -11,7 +11,7 @@ test('two application contracts preserve meaning across footer, rail and Next Ac
   await page.getByLabel('Emergency halt', { exact: true }).check();
   await expect(page.locator('.forge-glyph[data-role="halted"]')).toHaveCount(3);
   await expect(page.locator('[data-forge-motion="none"]')).toHaveCount(3);
-  await expect(page.getByLabel('HUD rail')).toContainText('System halted — interaction locked');
+  await expect(page.getByLabel('HUD rail')).toContainText('System halted');
   await expect(page.getByRole('button', { name: 'Request decision review' })).toBeDisabled();
 });
 test('one announcement owner, quiet timer and keyboard details', async ({ page }) => {

@@ -9,7 +9,7 @@
 <footer class="forge-ui forge-surface forge-hud-footer" data-density={hud.model.profile?.density}
   data-contrast={hud.model.profile?.contrast} data-motion={hud.model.profile?.motion}
   data-severity={hud.model.severity} aria-label="HUD footer">
-  {#if hud.model.simulation}<strong class="forge-simulation">Simulated — no live connection</strong>{/if}
+  {#if hud.model.simulation}<strong class="forge-simulation">Simulated</strong>{/if}
   <span>{hud.model.source?.id ?? 'Unknown source'} / {hud.model.source?.context ?? 'Unknown context'}</span>
   <ForgeProcessGlyph model={hud.model} />
   <ForgeLockIndicator model={hud.model} />

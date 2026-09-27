@@ -8,6 +8,7 @@ test('every role and failure is labeled, with simulation actions disabled', asyn
   await page.getByRole('combobox',{name:'Process state',exact:true}).selectOption(state);
   await expect(page.locator('.forge-glyph')).toHaveAttribute('data-role',state);
   await expect(page.getByRole('button',{name:'Request review'})).toBeDisabled();
+  await expect(page.getByRole('button',{name:'Request review'})).toHaveCSS('border-top-style','dashed');
   await expect(page.locator('[aria-live="assertive"]')).toHaveCount(0);
   if (['blocked','failed','halted','degraded','unavailable'].includes(state)) await expect(page.locator('[data-forge-motion]')).toHaveAttribute('data-forge-motion','none');
  }
