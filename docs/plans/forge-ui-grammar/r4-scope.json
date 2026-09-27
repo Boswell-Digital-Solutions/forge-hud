@@ -1,0 +1,21 @@
+{
+  "stage": "R4",
+  "purpose": "Two opt-in consumer status pilots; real store wiring with default-off adoption. Live operator acceptance remains open.",
+  "allowlist": [
+    "scripts/check_pilot_vendor.py",
+    "docs/plans/forge-ui-grammar/r4-scope.json",
+    "docs/plans/forge-ui-grammar/R4-RESULT.md",
+    "docs/plans/forge-ui-grammar/r4-consumers.json",
+    "docs/plans/forge-ui-grammar/r4-persistent-degradation.png",
+    "docs/plans/forge-ui-grammar/r4-locked-working.png",
+    "README.md",
+    "doc/system/04-delivery-status.md",
+    "doc/system/06-verification.md",
+    "doc/documentation-manifest.json",
+    "doc/fhdSYSTEM.md"
+  ],
+  "consumerScopes": [
+    "Boswell-Digital-Solutions/Forge_Command:docs/forge-hud-r4-scope.json",
+    "Boswell-Digital-Solutions/forge-smithy:docs/forge-hud-r4-scope.json"
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "schema": "forge-hud.r4-consumers.v1",
+  "observed": "2026-09-27",
+  "vendorRevision": "514481a003eb0445f1b058b36f98ecd0d64c098c",
+  "consumers": [
+    {
+      "repository": "Boswell-Digital-Solutions/Forge_Command",
+      "baseline": "0d6046d843c30efafced06b25a001d42613862f8",
+      "commit": "806fb99e9ac248692e5e749aa12d60c514011da2",
+      "pullRequest": "https://github.com/Boswell-Digital-Solutions/Forge_Command/pull/365",
+      "sourceHashes": {
+        "src/lib/components/CockpitContent.svelte": "46c82ffcf5e3f8cbc20c7fb9011dd604b5304c6f4e8248eec57e99e2279d1eb5",
+        "src/lib/hud/hudLanes.ts": "82633c6b90b3bf41a1e4beee39d38fbfc77a68b2267991c10f4fc6dfe5d0a8dc"
+      },
+      "defaultEnabled": false,
+      "browserEvidence": "Actual consumer pilot component with explicit producer doubles; not live backend acceptance"
+    },
+    {
+      "repository": "Boswell-Digital-Solutions/forge-smithy",
+      "baseline": "effeeca94a62aa703957e6d7d7c395bd11474bce",
+      "commit": "c6f4649df833b86c84670286a6e5ace13bea344a",
+      "pullRequest": "https://github.com/Boswell-Digital-Solutions/forge-smithy/pull/145",
+      "sourceHashes": {
+        "src/lib/components/hud/NextActionCard.svelte": "88dbadf4c9e641598ace85f3a89f4e6df52bbf1bb8065edda6c3418b9bc9efd3",
+        "src/lib/stores/pipeline.svelte.ts": "1eb6356e0151139c06ccb2468dc673e4ca21f157fa98e0ed452e453aca8f445c"
+      },
+      "defaultEnabled": false,
+      "browserEvidence": "Actual consumer pilot component with explicit producer doubles; not live backend acceptance"
+    }
+  ]
+}

@@ -40,3 +40,10 @@ R3 adapter results and refreshed local source hashes are recorded under
 `docs/plans/forge-ui-grammar/`. The suite now includes 99 contract tests and 12
 Chromium tests; R3 adds two-contract meaning, halt precedence, single announcement
 ownership, footer keyboard details, mobile layout and two adapter visual baselines.
+
+R4 consumer evidence is recorded in `docs/plans/forge-ui-grammar/R4-RESULT.md`.
+Both full Svelte checks and pilot-enabled production builds passed. Focused
+consumer tests total 60; two Chromium tests mount actual pilot components with
+producer doubles. These results do not establish live/native operator acceptance.
+`python3 scripts/check_pilot_vendor.py /path/to/consumer` verifies the source
+distribution against its pinned upstream Git commit.
