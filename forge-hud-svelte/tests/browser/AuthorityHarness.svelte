@@ -1,5 +1,5 @@
 <script lang="ts">
- import { ForgeAuthorityGate, ForgeStatusCapsule, projectState } from '../../src/index.js';
+ import { ForgeNextAction, ForgeStatusCapsule, projectState } from '../../src/index.js';
  let locked = $state(false);
  let simulation = $state(false);
  let halt = $state(false);
@@ -11,5 +11,5 @@
 <label><input type="checkbox" bind:checked={simulation}>Simulation flag</label>
 <label><input type="checkbox" bind:checked={halt}>Halt</label>
 <ForgeStatusCapsule {model}/>
-<ForgeAuthorityGate {model} actions={[{id:'review',label:'Request review'},{id:'unknown',label:'Unlisted action'}]} onrequest={() => requests++}/>
+<ForgeNextAction announce={false} hud={{model, sessionLabel:null, configurationIssues:[], actions:[{id:'review',label:'Request review'},{id:'unknown',label:'Unlisted action'}]}} onrequest={() => requests++}/>
 <p>Requests: {requests}</p>

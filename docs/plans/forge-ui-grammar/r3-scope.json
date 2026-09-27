@@ -1,0 +1,33 @@
+{
+  "stage": "R3",
+  "purpose": "Single-context HUD presentation adapters; no application-store imports or live migration.",
+  "allowlist": [
+    "forge-hud-svelte/src/adapters/hud.ts",
+    "forge-hud-svelte/tests/hud.test.ts",
+    "forge-hud-svelte/tests/browser/adapters.spec.ts",
+    "forge-hud-svelte/showcase/adapters.html",
+    "forge-hud-svelte/showcase/adapters.ts",
+    "forge-hud-svelte/showcase/Adapters.svelte",
+    "forge-hud-svelte/docs/hud-adapters.md",
+    "forge-hud-svelte/src/index.ts",
+    "forge-hud-svelte/src/theme/grammar.css",
+    "forge-hud-svelte/src/components/ForgeHudFooter.svelte",
+    "forge-hud-svelte/src/components/ForgeHudRail.svelte",
+    "forge-hud-svelte/src/components/ForgeLockIndicator.svelte",
+    "forge-hud-svelte/src/components/ForgeNextAction.svelte",
+    "forge-hud-svelte/tests/browser/adapters.spec.ts-snapshots/operator-linux.png",
+    "forge-hud-svelte/tests/browser/adapters.spec.ts-snapshots/plain-linux.png",
+    "forge-hud-svelte/src/components/ForgeStatusCapsule.svelte",
+    "forge-hud-svelte/tests/browser/AuthorityHarness.svelte"
+  ],
+  "supportingDocumentation": [
+    "README.md",
+    "doc/system/04-delivery-status.md",
+    "doc/system/06-verification.md",
+    "doc/fhdSYSTEM.md",
+    "doc/documentation-manifest.json",
+    "docs/plans/forge-ui-grammar/R3-RESULT.md",
+    "docs/plans/forge-ui-grammar/r3-source-baseline.json",
+    "forge-hud-svelte/README.md"
+  ]
+}

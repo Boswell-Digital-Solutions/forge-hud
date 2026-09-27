@@ -1,4 +1,4 @@
-# ForgeHUD Svelte package — R2 presentation proof
+# ForgeHUD Svelte package — R3 HUD adapters
 
 Private package `@forgehud/svelte`, version 0.1.0. This is a TypeScript presentation
 foundation plus four Svelte 5 presentation components and a simulated showcase.
@@ -101,3 +101,10 @@ Run `npx playwright install chromium` once if Chromium is unavailable, then
 profiles. Deliberate visual changes require reviewing regenerated baselines using
 `npm run test:browser -- --update-snapshots`. Automated accessibility checks do not
 replace a human screen-reader review, which remains open before live adoption.
+
+## HUD composition
+
+R3 adds `projectHud`, `ForgeHudFooter`, `ForgeHudRail`, `ForgeLockIndicator` and
+`ForgeNextAction`. See the [adapter contract](docs/hud-adapters.md). Run `npm run dev`
+and open `/adapters.html` for the two-contract, two-skin proof. These are portable
+presentation interfaces; no live application bindings are included.

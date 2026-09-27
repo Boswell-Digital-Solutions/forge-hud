@@ -8,3 +8,9 @@ export { default as ForgeProcessGlyph } from './components/ForgeProcessGlyph.sve
 export { default as ForgeStatusCapsule } from './components/ForgeStatusCapsule.svelte';
 export { default as ForgeEvidenceSeal } from './components/ForgeEvidenceSeal.svelte';
 export { default as ForgeAuthorityGate } from './components/ForgeAuthorityGate.svelte';
+export { projectHud } from './adapters/hud.js';
+export type { HudInput, HudPresentation, HudAction } from './adapters/hud.js';
+export { default as ForgeHudFooter } from './components/ForgeHudFooter.svelte';
+export { default as ForgeHudRail } from './components/ForgeHudRail.svelte';
+export { default as ForgeLockIndicator } from './components/ForgeLockIndicator.svelte';
+export { default as ForgeNextAction } from './components/ForgeNextAction.svelte';
