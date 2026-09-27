@@ -1,6 +1,8 @@
 import { acceptObservation, observationKey, parseObservation, projectObservation } from './observations.js';
 import type { ActivityObservation, ActivityScope } from './observations.js';
 
+export type ActivitySessionStatus = 'disconnected' | 'synchronizing' | 'connected' | 'resync-required' | 'revoked';
+
 /** In-memory consumer only. Server authorization and replay revisions belong to the transport. */
 export function createActivitySession(scope: ActivityScope, maxEntries = 128) {
   if (!scope || !['business-local', 'public-app'].includes(scope.plane) || typeof scope.scopeId !== 'string' || !scope.scopeId.trim()
@@ -10,7 +12,7 @@ export function createActivitySession(scope: ActivityScope, maxEntries = 128) {
   let entries = new Map<string, ActivityObservation>();
   let revision = -1;
   let generation = 0;
-  let status: 'disconnected' | 'synchronizing' | 'connected' | 'resync-required' | 'revoked' = 'disconnected';
+  let status: ActivitySessionStatus = 'disconnected';
   const validRevision = (value: number) => Number.isSafeInteger(value) && value >= 0;
   const detach = (event: ActivityObservation) => parseObservation(event)!;
   const same = (a: ActivityObservation, b: ActivityObservation) => observationKey(a) === observationKey(b)

@@ -77,3 +77,36 @@ revocation. It is transport-neutral. Inspection of the existing forge-telemetry
 README confirms that library owns producer emission and DataForge owns ingestion
 and durable identity; neither should be replaced by a new ForgeHUD ingestion API.
 The required authorized read subscription still needs owner-side implementation.
+
+## DataForge read-route inspection and visible consumer slice
+
+Inspected DataForge at `a4e8b33460e4b33ea4ad1f00626d810148141690`, remote
+`https://github.com/Boswell-Digital-Solutions/DataForge.git`.
+`app/main.py` mounts `app/api/telemetry_router.py`. Its
+`GET /api/v1/telemetry/correlations/{correlation_id}` route is rollout-gated and
+requires an API key with `telemetry:read`, exact environment/tenant binding, and
+service identity `forge_command`. Deployment/flag state was not tested.
+
+`ForgeEventCorrelationReadV1` and `ForgeEventCorrelationSummaryV1` in
+`app/models/telemetry_schemas.py` expose bounded correlation summaries, possibly
+partial or restricted. They do not contain provider/model, request-attempt activity
+state, an authorized public session binding, or snapshot/update feed revisions.
+The response `observed_at` is read time, not an execution heartbeat. It cannot be
+mapped into the proposed session contract by inventing sequences or treating a
+partial correlation result as a complete activity snapshot. Service keys must
+remain outside browser code. DataForge also explicitly rejects AuthorForge on its
+attributes-bearing canonical ingest route; its separate minimized analytics
+boundary must remain intact.
+
+The reusable `ForgeActivityList` now renders accepted session observations as
+separate origin/task/request/attempt rows. `/activity.html` exercises the actual
+session and projection code with synthetic producer data, including routed versus
+executing states, disconnect, revision gap, recovery, age expiry, revocation and
+audience replacement. This is visible consumer integration, **not live transport
+acceptance**. No consumer vendor refresh or production service mutation was made.
+
+The owner-side critical path remains: agree the minimized lifecycle schema with
+forge_contract_core, emit at Yellowjacket/NeuroForge execution boundaries, then
+supply an authorized read model with explicit complete-snapshot and replay
+semantics. Existing correlation telemetry remains correlation evidence; it is not
+silently repurposed as public-app activity delivery.
