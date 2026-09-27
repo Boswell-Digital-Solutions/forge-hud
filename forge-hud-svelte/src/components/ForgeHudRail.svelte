@@ -6,6 +6,6 @@
 </script>
 <aside class="forge-ui forge-hud-rail" data-contrast={hud.model.profile?.contrast} aria-label="HUD rail">
   {#if hud.sessionLabel}<p class="forge-session">Session: {hud.sessionLabel}</p>{/if}
-  <ForgeStatusCapsule model={hud.model} {announce} accessibleLabel="Rail process status" />
+  <ForgeStatusCapsule model={hud.model} activity={hud.activity ?? null} {announce} accessibleLabel="Rail process status" />
   <ForgeEvidenceSeal model={hud.model} />
 </aside>
