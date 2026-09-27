@@ -110,3 +110,23 @@ forge_contract_core, emit at Yellowjacket/NeuroForge execution boundaries, then
 supply an authorized read model with explicit complete-snapshot and replay
 semantics. Existing correlation telemetry remains correlation evidence; it is not
 silently repurposed as public-app activity delivery.
+
+## NeuroForge request-stream consumer — follow-on
+
+NeuroForge PR #104 merged as `341d4d46`, adding explicit provider/simulated/unknown
+result provenance. PR #105 merged as `32f5c267`, adding request-local lifecycle
+context to started/model_selected/completed/error. The earlier source findings
+above describe the original pinned revision; these two gaps are now addressed in
+source. Deployment was not checked.
+
+ForgeHUD now exposes `createNeuroForgeStream` and `ForgeNeuroForgeStream` to bind
+that existing request owner's decoded reports to a trusted origin/audience. The
+stream preview exercises the real adapter and renderer with fixtures. Unknown
+simulation status remains separate from v1 observations rather than becoming a
+false boolean claim. Selection never produces a working animation. Content and
+error payloads are dropped at this boundary.
+
+Remaining: attach the adapter in actual request-owning consumers, producer-start
+and heartbeat evidence, authorized read/replay delivery for observers, and real
+service acceptance. This request-local bridge does not satisfy the separate
+scope-wide snapshot/update transport contract or establish public-app access.

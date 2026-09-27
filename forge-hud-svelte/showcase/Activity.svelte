@@ -57,7 +57,7 @@
     </section>
     <p class="hint">Synthetic reports expire after 15 seconds without an update. Switching audience clears the previous session. These controls only change this preview.</p>
     <ForgeActivityList {observations} {scope} {status} {profile} {nowMs} staleAfterMs={15000} />
-    <p class="hint"><a href="/adapters.html">Return to workspace preview</a></p>
+    <p class="hint"><a href="/adapters.html">Return to workspace preview</a> · <a href="/stream.html">Replay a request stream</a></p>
   </main>
 </div>
 <style>a{color:var(--t-attention)}</style>

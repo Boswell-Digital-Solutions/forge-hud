@@ -23,3 +23,6 @@ export type { ActivityScope, ActivityPhase, ActivityObservation } from './adapte
 export { createActivitySession } from './adapters/activity-session.js';
 export type { ActivitySessionStatus } from './adapters/activity-session.js';
 export { default as ForgeActivityList } from './components/ForgeActivityList.svelte';
+export { createNeuroForgeStream, projectNeuroForgeReport } from './adapters/neuroforge-stream.js';
+export type { NeuroForgeStreamBinding, NeuroForgeStreamReport, NeuroForgeStreamStatus } from './adapters/neuroforge-stream.js';
+export { default as ForgeNeuroForgeStream } from './components/ForgeNeuroForgeStream.svelte';
