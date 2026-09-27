@@ -122,9 +122,9 @@ missing source files in this repo and must not be treated as locally executable 
 
 ## 4. Delivery status and plan relationship
 
-Current audited snapshot — 2026-09-27: R1 package contracts, validation, profiles,
-motion data, scoped tokens and tests are implemented locally. Consumer migration
-and rendered UI have not started. Documentation build success is not runtime or
+Current audited snapshot — 2026-09-27: R1 contracts and R2 Svelte proof surfaces,
+simulator and Chromium checks are implemented. Consumer migration has not started.
+Human screen-reader review remains open before live adoption. Documentation build success is not runtime or
 full GATE-00 acceptance.
 
 The authoritative local work breakdown is the reconciled plan under
@@ -134,8 +134,8 @@ files. The source Google Doc has not been edited by this repository setup.
 | Stage | Intended result | Status |
 | --- | --- | --- |
 | R0 | Source inventory and reconciliation | Local planning evidence recorded; historical full-scope GATE-00 remains unresolved |
-| R1 | Svelte package, projection/profile validation, tokens and motion contract | Implemented and locally verified; no components or live consumer yet |
-| R2 | Four proof surfaces and explicitly simulated showcase | Planned, not implemented |
+| R1 | Svelte package, projection/profile validation, tokens and motion contract | Merged and locally verified |
+| R2 | Four proof surfaces and explicitly simulated showcase | Implemented with automated browser proof; human screen-reader review pending |
 | R3 | Bounded HUD presentation adapters | Planned, not implemented |
 | R4 | SMITH and Forge Command operator pilots | Planned, not implemented |
 | R5 | AuthorForge creator proof and reviewer profile | Planned, not implemented |
@@ -200,6 +200,7 @@ npm ci --ignore-scripts
 npm run check
 npm test
 npm run build
+npm run test:browser
 ```
 
 R1 has behavior-focused contract tests and a built-package import check. Further proof
@@ -208,8 +209,9 @@ degradation, source/severity separation, timer suppression, keyboard/focus behav
 reduced motion, high contrast and equivalent meaning across skins.
 
 R1 validation results are recorded in `docs/plans/forge-ui-grammar/R1-RESULT.md`.
-No screen-reader proof, rendered visual regression matrix or live application
-integration is claimed. Source-lock checks in the planning evidence describe earlier
+R2 results are recorded in `docs/plans/forge-ui-grammar/R2-RESULT.md`, including
+8 Chromium tests and operator/plain screenshots. No human screen-reader proof or
+live application integration is claimed. Source-lock checks in the planning evidence describe earlier
 application-source observations only.
 
 Central documentation registry admission is pending. Local verification does not

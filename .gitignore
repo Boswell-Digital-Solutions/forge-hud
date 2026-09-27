@@ -3,3 +3,6 @@
 **/coverage/
 **/__pycache__/
 *.tgz
+**/test-results/
+**/playwright-report/
+**/.svelte-kit/

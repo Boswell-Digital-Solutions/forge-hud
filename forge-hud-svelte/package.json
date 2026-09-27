@@ -2,7 +2,7 @@
   "name": "@forgehud/svelte",
   "version": "0.1.0",
   "private": true,
-  "description": "ForgeHUD presentation contracts; R1 foundation, no UI components yet",
+  "description": "ForgeHUD Svelte presentation contracts and proof surfaces",
   "type": "module",
   "files": [
     "dist",
@@ -12,7 +12,8 @@
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
-      "import": "./dist/index.js"
+      "import": "./dist/index.js",
+      "svelte": "./dist/index.js"
     },
     "./theme.css": "./dist/theme/grammar.css"
   },
@@ -26,13 +27,20 @@
     "svelte": "^5.0.0"
   },
   "scripts": {
-    "check": "tsc --noEmit",
+    "check": "svelte-check --tsconfig ./tsconfig.json",
     "test": "vitest run",
-    "build": "tsc && node --input-type=module -e \"import {mkdirSync,copyFileSync} from 'node:fs'; mkdirSync('dist/theme',{recursive:true}); copyFileSync('src/theme/grammar.css','dist/theme/grammar.css');\""
+    "build": "svelte-package -i src -o dist",
+    "dev": "vite showcase --config vite.config.ts --host 127.0.0.1",
+    "test:browser": "playwright test"
   },
   "devDependencies": {
+    "@axe-core/playwright": "^4.13.0",
+    "@playwright/test": "^1.63.0",
+    "@sveltejs/package": "^2.5.8",
+    "@sveltejs/vite-plugin-svelte": "^6.2.4",
     "@types/node": "^20.19.43",
     "svelte": "^5.57.1",
+    "svelte-check": "^4.7.6",
     "typescript": "^5.9.3",
     "vite": "^7.3.6",
     "vitest": "^4.1.11"

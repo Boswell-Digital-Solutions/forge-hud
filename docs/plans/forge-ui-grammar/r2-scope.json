@@ -1,0 +1,39 @@
+{
+  "stage": "R2",
+  "purpose": "Four presentation surfaces and explicitly simulated proof. No live adapters or authority resolver.",
+  "allowlist": [
+    "forge-hud-svelte/src/components/ForgeProcessGlyph.svelte",
+    "forge-hud-svelte/src/components/ForgeStatusCapsule.svelte",
+    "forge-hud-svelte/src/components/ForgeEvidenceSeal.svelte",
+    "forge-hud-svelte/src/components/ForgeAuthorityGate.svelte",
+    "forge-hud-svelte/src/index.ts",
+    "forge-hud-svelte/src/theme/grammar.css",
+    "forge-hud-svelte/package.json",
+    "forge-hud-svelte/package-lock.json",
+    "forge-hud-svelte/tsconfig.json",
+    "forge-hud-svelte/svelte.config.js",
+    "forge-hud-svelte/vite.config.ts",
+    "forge-hud-svelte/playwright.config.ts",
+    "forge-hud-svelte/showcase/index.html",
+    "forge-hud-svelte/showcase/main.ts",
+    "forge-hud-svelte/showcase/App.svelte",
+    "forge-hud-svelte/showcase/style.css",
+    "forge-hud-svelte/tests/browser/surfaces.spec.ts",
+    "forge-hud-svelte/tests/browser/surfaces.spec.ts-snapshots/operator-linux.png",
+    "forge-hud-svelte/tests/browser/surfaces.spec.ts-snapshots/plain-linux.png",
+    "forge-hud-svelte/tests/browser/authority.html",
+    "forge-hud-svelte/tests/browser/authority.ts",
+    "forge-hud-svelte/tests/browser/AuthorityHarness.svelte"
+  ],
+  "supportingDocumentation": [
+    "README.md",
+    ".gitignore",
+    "forge-hud-svelte/README.md",
+    "forge-hud-svelte/docs/accessibility-matrix.md",
+    "doc/system/04-delivery-status.md",
+    "doc/system/06-verification.md",
+    "doc/fhdSYSTEM.md",
+    "doc/documentation-manifest.json",
+    "docs/plans/forge-ui-grammar/R2-RESULT.md"
+  ]
+}
