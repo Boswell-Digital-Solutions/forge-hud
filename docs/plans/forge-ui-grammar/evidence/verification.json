@@ -1,0 +1,8 @@
+{
+  "schema": "bds.forge-ui-grammar.cp0.verification.v1",
+  "snapshot_hashes_verified": 44,
+  "reference_hashes_verified": 8,
+  "source_worktrees_unchanged": true,
+  "runtime_tests_run": false,
+  "gate_00": "unresolved"
+}

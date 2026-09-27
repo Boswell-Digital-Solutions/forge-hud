@@ -1,0 +1,49 @@
+{
+  "schema": "bds.forge-ui-grammar.cp1-scope.v2",
+  "plan_id": "BDS-FORGE-UI-GRAMMAR-v0.1",
+  "reconciliation_status": "recorded_local",
+  "historical_gate_00": "unresolved_full_scope",
+  "first_slice": "R1-package-and-presentation-contracts",
+  "shared_package_owner": "Boswell-Digital-Solutions/forge-hud",
+  "remote": "https://github.com/Boswell-Digital-Solutions/forge-hud.git",
+  "remote_observation": "successful empty clone; no initial commit",
+  "package_root": "forge-hud-svelte",
+  "allowed_code_paths": [
+    "forge-hud-svelte/package.json",
+    "forge-hud-svelte/package-lock.json",
+    "forge-hud-svelte/tsconfig.json",
+    "forge-hud-svelte/svelte.config.js",
+    "forge-hud-svelte/vite.config.ts",
+    "forge-hud-svelte/src/index.ts",
+    "forge-hud-svelte/src/grammar/roles.ts",
+    "forge-hud-svelte/src/grammar/types.ts",
+    "forge-hud-svelte/src/grammar/validate.ts",
+    "forge-hud-svelte/src/grammar/motion.ts",
+    "forge-hud-svelte/src/grammar/profiles.ts",
+    "forge-hud-svelte/src/theme/grammar.css",
+    "forge-hud-svelte/tests/fixtures/smith.json",
+    "forge-hud-svelte/tests/fixtures/forge-command.json",
+    "forge-hud-svelte/tests/fixtures/authorforge.json",
+    "forge-hud-svelte/tests/fixtures/reviewer-simulated.json",
+    "forge-hud-svelte/tests/grammar.test.ts",
+    "forge-hud-svelte/tests/profiles.test.ts",
+    "forge-hud-svelte/docs/authority-boundary.md",
+    "forge-hud-svelte/docs/accessibility-matrix.md",
+    "forge-hud-svelte/README.md"
+  ],
+  "runtime_implementation_started": false,
+  "first_slice_dependency": "existing application contracts used only as pinned fixtures",
+  "deferred_integration_prerequisites": {
+    "tarcie": "Select capture donor versus reviewer repository before live adoption",
+    "status_indicators": "Locate exact source before migration",
+    "distribution": "Select consumer dependency mechanism and versioning before live integration",
+    "visual_fidelity": "Lock brand reference before exact brand compliance claims",
+    "baseline": "Refresh each application revision before editing it"
+  },
+  "preserve": [
+    "Application/backend state authority",
+    "Existing UGA and NextAction resolution",
+    "Existing emergency halt and backend clearance"
+  ],
+  "supersedes": "cp1-scope.original.json empty global allowlist; historical source evidence unchanged"
+}
