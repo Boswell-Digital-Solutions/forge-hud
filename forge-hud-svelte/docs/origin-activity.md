@@ -202,3 +202,62 @@ and replaces the previous session. The 15-second expiry is a preview setting, no
 an agreed production heartbeat budget. Browser tests exercise the real session →
 projection → component path, mobile layouts, accessibility and reduced motion.
 These fixtures do not establish server-side isolation or live connectivity.
+
+## Existing NeuroForge generation stream
+
+`createNeuroForgeStream(binding)` consumes **decoded lifecycle messages from an
+already authorized generation request**. Its binding supplies trusted scope,
+origin, request ID and local attempt ID; none come from event payloads. Attach one
+instance to exactly one request response. The first `started` report establishes
+its producer execution ID; later reports must match it. This does not authenticate
+the first report or defend against attaching the wrong response in the host.
+
+```ts
+const stream = createNeuroForgeStream({ scope: trustedScope, origin, requestId, attemptId });
+// The request owner's existing bounded SSE parser calls this:
+stream.accept(eventName, decodedJSON);
+// Publish detached state after each callback in the host's reactive store:
+report = stream.report();
+status = stream.status;
+// EOF, network error, cancellation:
+stream.close();
+// Logout, audience change, component cleanup:
+stream.revoke(); // also cancel/detach the native subscription in the host
+```
+
+The API never fetches, starts generation, parses unbounded wire data, reconnects,
+persists or logs payloads. The request owner must bound frame bytes **before** JSON
+parsing. Chunk and metrics inputs are ignored without inspecting them. Legacy
+content, prompts, raw errors and payload-supplied audience fields are not retained.
+Only selected route identifiers, strict lifecycle context and strict minimized
+provenance are copied. Identifier fields are not a general content sanitizer.
+
+The adapter verifies the merged NeuroForge PR #105 lifecycle shape, contiguous
+request-local sequence from zero, timestamps, execution identity, allowed phase
+order and terminal provenance. Older/duplicate sequence numbers are ignored.
+Malformed/gapped/cross-request reports mark the stream invalid and freeze its last
+report; disconnect makes an unfinished stream stale. Revoke clears it and rejects
+all callbacks. Terminal reports close acceptance; normal EOF preserves their
+reported terminal state until the host freshness budget expires. `finished`
+means the stream reached a terminal report, **not** that generation succeeded.
+
+These sequence numbers are not the scope-wide feed revisions required by
+`createActivitySession`. Do not inject them as feed revisions or synthesize a
+complete audience snapshot from a single request. Recovery requires owner-side
+read/replay semantics; repeating the generation POST is not telemetry recovery.
+
+`ForgeNeuroForgeStream` renders detached `report`, `status`, `profile`, `nowMs` and
+`staleAfterMs`. It keeps unknown provenance explicit and static. The v1 observation
+schema requires boolean simulation, so `projectNeuroForgeReport` returns null for
+unknown provenance rather than lying about real/simulated execution. Known terminal
+provenance projects through the existing HUD adapter. Actual reported provider
+identity wins over selected identity; simulated results carry no selected-company
+icon. Selection remains separate text. No executing state is invented: this source
+still lacks provider-start events. Evidence remains unverified and actions disabled.
+
+The optional `/stream.html` showcase replays payload-shaped fixtures through this
+same adapter/component path. Even its provider-mode example is a fixture, clearly
+labeled at the top of the page. Access it from `/activity.html`. This verifies the
+consumer binding API and renderer, not a deployed service connection or server-side
+origin authorization. No SMITH/Command vendor updates are included until their
+request-owning transports are bound.
