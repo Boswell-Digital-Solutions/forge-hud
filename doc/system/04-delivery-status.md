@@ -1,7 +1,8 @@
 ## 4. Delivery status and plan relationship
 
 Current audited snapshot — 2026-09-27: R1 contracts, R2 Svelte primitives and R3
-single-context HUD adapters with simulated Chromium proof are implemented. Consumer migration has not started.
+single-context HUD adapters with simulated Chromium proof are implemented. Default-off Command and SMITH pilot branches now bind existing renderer stores;
+live operator acceptance is still open.
 Human screen-reader review remains open before live adoption. Documentation build success is not runtime or
 full GATE-00 acceptance.
 
@@ -15,7 +16,7 @@ files. The source Google Doc has not been edited by this repository setup.
 | R1 | Svelte package, projection/profile validation, tokens and motion contract | Merged and locally verified |
 | R2 | Four proof surfaces and explicitly simulated showcase | Implemented with automated browser proof; human screen-reader review pending |
 | R3 | Bounded HUD presentation adapters | Implemented with two source contracts and two skins; no live store bindings |
-| R4 | SMITH and Forge Command operator pilots | Planned, not implemented |
+| R4 | SMITH and Forge Command operator pilots | Default-off read-only integrations implemented in consumer PRs; live/native and human screen-reader acceptance pending |
 | R5 | AuthorForge creator proof and reviewer profile | Planned, not implemented |
 | R6 | Regression evidence and bounded rollout | Planned, not implemented |
 | R7 | Remaining backend, evidence, fatigue, multi-context and CLI work | Planned, not implemented |
