@@ -1,9 +1,12 @@
 ## 5. Interface and safety contract
 
-No public runtime API is implemented yet. The following rules govern the planned
-interface and do not certify that enforcement code exists.
+The private R1 package exports `projectState`, `validateSnapshot`, `validateMapping`,
+`validateProfile`, `motionFor`, `announcementChanged`, and types/constants. It validates
+JSON-shaped data, not arbitrary classes or executable objects. Detailed API guidance
+is in `forge-hud-svelte/README.md`. The rules below combine implemented data contracts
+with rendering requirements that remain to be verified in R2.
 
-- Components receive data and callbacks through props; no application-store imports.
+- Planned components receive data and callbacks through props; R1 has no application-store imports.
 - Profiles preserve semantic meaning across operator, creator and reviewer skins.
 - Source identity and severity occupy separate channels even when colors coincide.
 - Toasts describe events; persistent status describes current truth.

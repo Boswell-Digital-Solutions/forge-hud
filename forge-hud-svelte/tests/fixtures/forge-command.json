@@ -1,0 +1,50 @@
+{
+  "provenance": {
+    "kind": "synthetic-fixture",
+    "sourceRevision": "445e5363d40627da32cce42935269bfc13059730",
+    "sourcePath": "src/lib/hud/hudLanes.ts",
+    "note": "Vocabulary grounded in pinned source when provided; channel values are synthetic. No action authority."
+  },
+  "profile": {
+    "id": "forge-command",
+    "language": "operator",
+    "density": "compact",
+    "contrast": "standard",
+    "motion": "standard",
+    "sourceAccent": "#38bdf8"
+  },
+  "mapping": {
+    "version": 1,
+    "owner": "forge-command",
+    "mappings": [
+      {
+        "source": "forge-command",
+        "context": "decisions",
+        "nativeState": "halt",
+        "role": "awaiting_authority"
+      },
+      {
+        "source": "forge-command",
+        "context": "registry",
+        "nativeState": "attention",
+        "role": "degraded"
+      }
+    ]
+  },
+  "snapshot": {
+    "source": "forge-command",
+    "context": "decisions",
+    "nativeState": "halt",
+    "observedAt": "2026-09-27T12:00:00.000Z",
+    "severity": "attention",
+    "authority": "human-required",
+    "evidence": "unverified",
+    "freshness": "current",
+    "locked": false,
+    "simulation": true,
+    "reason": "Known pending decisions, not an ecosystem emergency halt.",
+    "allowedActionIds": [
+      "review-decision"
+    ]
+  }
+}

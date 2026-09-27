@@ -2,11 +2,13 @@
 
 ### Current architecture
 
-The executable surface is documentation tooling only: `doc/system/BUILD.sh` assembles
-chapters; `scripts/check_docs.py` validates the documentation set. There is no
-application runtime, server, database, IPC endpoint or state machine here.
+The executable surface includes documentation tooling and the R1 pure TypeScript
+projection package. `projectState` validates JSON snapshots, application-owned maps
+and presentation profiles, then returns display data. Failures are visible and
+action-disabled. There is no rendered UI, server, database, IPC endpoint or business
+state machine here.
 
-### Planned architecture
+### Implemented R1 contract and planned consumer integration
 
 Applications supply native state and display projections to the shared Svelte
 package. Profiles validate independent operational, severity, authority, evidence,
@@ -16,7 +18,7 @@ into the consuming application's existing workflow.
 | Owner | Responsibility |
 | --- | --- |
 | Consuming application/backend | Operational state, readiness, permitted actions and command execution |
-| ForgeHUD Svelte package (planned) | Projection validation, visual semantics, profiles, tokens and accessible rendering |
+| ForgeHUD Svelte package (R1 contracts implemented) | Projection validation, visual semantics, profiles, tokens and accessible rendering |
 | Forge Command / existing governance surfaces | Existing operator authorization and decision workflows |
 | DataForge | Durable cross-system operational memory |
 | forge_contract_core | Shared normative schema admission when required |

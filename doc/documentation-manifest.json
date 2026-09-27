@@ -1,7 +1,7 @@
 {
   "schema": "bds.forge-hud.documentation.v1",
   "repository": "Boswell-Digital-Solutions/forge-hud",
-  "role": "shared presentation library (planned runtime)",
+  "role": "shared presentation library",
   "protocol": "BDS Documentation Protocol v2.0",
   "source_index": "doc/system/_index.md",
   "assembled_output": "doc/fhdSYSTEM.md",
@@ -9,6 +9,6 @@
   "central_prefix_registration": "pending",
   "central_documentation_registry": "pending",
   "canonical_ecosystem_mount": null,
-  "runtime_maturity": "not_implemented",
+  "runtime_maturity": "r1_contracts_implemented_no_ui_or_live_integration",
   "last_updated": "2026-09-27"
 }

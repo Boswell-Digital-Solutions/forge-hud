@@ -1,0 +1,72 @@
+{
+  "provenance": {
+    "kind": "synthetic-fixture",
+    "sourceRevision": "93d187029885a300f3bfaa5d066e34c9b2de23f4",
+    "sourcePath": "src/lib/stores/pipeline.svelte.ts",
+    "note": "Vocabulary grounded in pinned source when provided; channel values are synthetic. No action authority."
+  },
+  "profile": {
+    "id": "smith",
+    "language": "operator",
+    "density": "compact",
+    "contrast": "standard",
+    "motion": "standard",
+    "sourceAccent": "#38bdf8"
+  },
+  "mapping": {
+    "version": 1,
+    "owner": "smith",
+    "mappings": [
+      {
+        "source": "smith",
+        "context": "pipeline",
+        "nativeState": "IDLE",
+        "role": "idle"
+      },
+      {
+        "source": "smith",
+        "context": "pipeline",
+        "nativeState": "EXECUTING",
+        "role": "working"
+      },
+      {
+        "source": "smith",
+        "context": "pipeline",
+        "nativeState": "VERIFYING_EVIDENCE",
+        "role": "verifying"
+      },
+      {
+        "source": "smith",
+        "context": "pipeline",
+        "nativeState": "AWAITING_AUTH",
+        "role": "awaiting_authority"
+      },
+      {
+        "source": "smith",
+        "context": "pipeline",
+        "nativeState": "DONE",
+        "role": "complete"
+      },
+      {
+        "source": "smith",
+        "context": "pipeline",
+        "nativeState": "ERROR",
+        "role": "failed"
+      }
+    ]
+  },
+  "snapshot": {
+    "source": "smith",
+    "context": "pipeline",
+    "nativeState": "EXECUTING",
+    "observedAt": "2026-09-27T12:00:00.000Z",
+    "severity": "neutral",
+    "authority": "automatic",
+    "evidence": "unverified",
+    "freshness": "current",
+    "locked": true,
+    "simulation": true,
+    "reason": "Execution fixture from the pinned pipeline vocabulary.",
+    "allowedActionIds": []
+  }
+}

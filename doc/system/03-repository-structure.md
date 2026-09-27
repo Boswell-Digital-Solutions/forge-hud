@@ -9,10 +9,12 @@
 | `docs/plans/` | Planned work and local plan index; not implemented-system evidence |
 | `docs/plans/forge-ui-grammar/evidence/` | Earlier source-lock and reference metadata |
 | `scripts/check_docs.py` | Shape, index, relative-link and assembled-output checks |
+| `forge-hud-svelte/` | Private R1 package, tests, fixtures and developer docs |
 
-Documentation requires Bash, standard Unix tools and Python 3. No dependency install
-is needed. Svelte 5/TypeScript and a possible later Rust/Tauri integration are planned
-technology choices, not installed runtime dependencies.
+Documentation requires Bash, standard Unix tools and Python 3. The R1 package uses
+TypeScript, Svelte 5 peer compatibility, Vite and Vitest; Node 20.19+ and npm are
+required for its checks/build. The lockfile pins resolved dependencies. Rust/Tauri
+implementation remains later work. Build products live in ignored `dist/` folders.
 
 There are no runtime environment variables, service ports, startup commands or
 credential requirements. Do not create placeholder operational configuration merely

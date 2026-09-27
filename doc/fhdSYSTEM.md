@@ -1,12 +1,12 @@
 # ForgeHUD — System Documentation
 
-> Shared governance presentation toolkit; current checkout is documentation-only.
+> Shared governance presentation toolkit; R1 presentation contracts implemented; rendered UI remains planned.
 
 Protocol: BDS Documentation Protocol v2.0. Document version: 0.1.
 Last updated: 2026-09-27.
 
 This is the canonical repository-local deep reference. Ownership and invariants are
-normative; dated observations are snapshots; runtime architecture is explicitly
+normative; dated observations are snapshots; R1 data contracts are implemented; UI and consumer integrations remain
 planned, not implemented. This library has no resident service or startup endpoint.
 
 Generated output: `doc/fhdSYSTEM.md`. Prefix `fhd` is locally selected; central
@@ -41,15 +41,17 @@ ForgeHUD is the shared governance-presentation toolkit owned by
 with existing operational state and governed user actions.
 
 Current code snapshot — 2026-09-27: this repository contains documentation,
-implementation planning and source-evidence metadata. No Svelte package, Rust crate,
-CLI, runtime service or published artifact exists in this checkout.
+planning evidence and the private `forge-hud-svelte` R1 TypeScript package. It provides
+projection/profile validation, display models, motion contracts and scoped CSS.
+No Svelte components, Rust crate, CLI, live application integration or published artifact
+exists yet.
 
 The repository owns the portable presentation contract. It does not own application
 business state, approval authority, canonical operational memory or evidence signing.
 Visual state must reflect reported truth. A profile may change wording and density,
 but must never turn blocked into success or human-required into automatic.
 
-The initial planned package is `forge-hud-svelte`. UI Grammar is part of that package,
+The initial package is `forge-hud-svelte`. UI Grammar is part of that package,
 not a competing toolkit. Later Rust and CLI work remains planned, not implemented.
 
 ---
@@ -58,11 +60,13 @@ not a competing toolkit. Later Rust and CLI work remains planned, not implemente
 
 ### Current architecture
 
-The executable surface is documentation tooling only: `doc/system/BUILD.sh` assembles
-chapters; `scripts/check_docs.py` validates the documentation set. There is no
-application runtime, server, database, IPC endpoint or state machine here.
+The executable surface includes documentation tooling and the R1 pure TypeScript
+projection package. `projectState` validates JSON snapshots, application-owned maps
+and presentation profiles, then returns display data. Failures are visible and
+action-disabled. There is no rendered UI, server, database, IPC endpoint or business
+state machine here.
 
-### Planned architecture
+### Implemented R1 contract and planned consumer integration
 
 Applications supply native state and display projections to the shared Svelte
 package. Profiles validate independent operational, severity, authority, evidence,
@@ -72,7 +76,7 @@ into the consuming application's existing workflow.
 | Owner | Responsibility |
 | --- | --- |
 | Consuming application/backend | Operational state, readiness, permitted actions and command execution |
-| ForgeHUD Svelte package (planned) | Projection validation, visual semantics, profiles, tokens and accessible rendering |
+| ForgeHUD Svelte package (R1 contracts implemented) | Projection validation, visual semantics, profiles, tokens and accessible rendering |
 | Forge Command / existing governance surfaces | Existing operator authorization and decision workflows |
 | DataForge | Durable cross-system operational memory |
 | forge_contract_core | Shared normative schema admission when required |
@@ -99,10 +103,12 @@ Later shared Rust extraction requires a separate authority-preserving migration.
 | `docs/plans/` | Planned work and local plan index; not implemented-system evidence |
 | `docs/plans/forge-ui-grammar/evidence/` | Earlier source-lock and reference metadata |
 | `scripts/check_docs.py` | Shape, index, relative-link and assembled-output checks |
+| `forge-hud-svelte/` | Private R1 package, tests, fixtures and developer docs |
 
-Documentation requires Bash, standard Unix tools and Python 3. No dependency install
-is needed. Svelte 5/TypeScript and a possible later Rust/Tauri integration are planned
-technology choices, not installed runtime dependencies.
+Documentation requires Bash, standard Unix tools and Python 3. The R1 package uses
+TypeScript, Svelte 5 peer compatibility, Vite and Vitest; Node 20.19+ and npm are
+required for its checks/build. The lockfile pins resolved dependencies. Rust/Tauri
+implementation remains later work. Build products live in ignored `dist/` folders.
 
 There are no runtime environment variables, service ports, startup commands or
 credential requirements. Do not create placeholder operational configuration merely
@@ -116,9 +122,10 @@ missing source files in this repo and must not be treated as locally executable 
 
 ## 4. Delivery status and plan relationship
 
-Current audited snapshot — 2026-09-27: documentation and reconciliation are present;
-runtime implementation and consumer migration have not started. Documentation build
-success is not runtime acceptance or completion of GATE-00.
+Current audited snapshot — 2026-09-27: R1 package contracts, validation, profiles,
+motion data, scoped tokens and tests are implemented locally. Consumer migration
+and rendered UI have not started. Documentation build success is not runtime or
+full GATE-00 acceptance.
 
 The authoritative local work breakdown is the reconciled plan under
 `docs/plans/forge-ui-grammar/RECONCILED-PLAN.md`; its R1 scope lists the initial package
@@ -127,7 +134,7 @@ files. The source Google Doc has not been edited by this repository setup.
 | Stage | Intended result | Status |
 | --- | --- | --- |
 | R0 | Source inventory and reconciliation | Local planning evidence recorded; historical full-scope GATE-00 remains unresolved |
-| R1 | Svelte package, projection/profile validation, tokens and motion contract | Planned, not implemented |
+| R1 | Svelte package, projection/profile validation, tokens and motion contract | Implemented and locally verified; no components or live consumer yet |
 | R2 | Four proof surfaces and explicitly simulated showcase | Planned, not implemented |
 | R3 | Bounded HUD presentation adapters | Planned, not implemented |
 | R4 | SMITH and Forge Command operator pilots | Planned, not implemented |
@@ -148,10 +155,13 @@ explicitly amended; never mark the full toolkit complete after the first primiti
 
 ## 5. Interface and safety contract
 
-No public runtime API is implemented yet. The following rules govern the planned
-interface and do not certify that enforcement code exists.
+The private R1 package exports `projectState`, `validateSnapshot`, `validateMapping`,
+`validateProfile`, `motionFor`, `announcementChanged`, and types/constants. It validates
+JSON-shaped data, not arbitrary classes or executable objects. Detailed API guidance
+is in `forge-hud-svelte/README.md`. The rules below combine implemented data contracts
+with rendering requirements that remain to be verified in R2.
 
-- Components receive data and callbacks through props; no application-store imports.
+- Planned components receive data and callbacks through props; R1 has no application-store imports.
 - Profiles preserve semantic meaning across operator, creator and reviewer skins.
 - Source identity and severity occupy separate channels even when colors coincide.
 - Toasts describe events; persistent status describes current truth.
@@ -183,14 +193,24 @@ in lexical order with fixed separators. It writes only `doc/fhdSYSTEM.md` and in
 no generated timestamp. The checker rejects stale assembled output, malformed chapter
 names, missing TOC entries and broken relative Markdown links in repository documents.
 
-For an implementation slice, add behavior-focused tests with its code. Planned proof
+Package verification (run in `forge-hud-svelte/`):
+
+```bash
+npm ci --ignore-scripts
+npm run check
+npm test
+npm run build
+```
+
+R1 has behavior-focused contract tests and a built-package import check. Further proof
 includes unknown inputs, locked-but-working, approval versus emergency halt, persistent
 degradation, source/severity separation, timer suppression, keyboard/focus behavior,
 reduced motion, high contrast and equivalent meaning across skins.
 
-No runtime tests, screen-reader proof, visual regression matrix, release build or
-package-size measurement has been executed for ForgeHUD. Source-lock checks in the
-planning evidence describe earlier application-source observations only.
+R1 validation results are recorded in `docs/plans/forge-ui-grammar/R1-RESULT.md`.
+No screen-reader proof, rendered visual regression matrix or live application
+integration is claimed. Source-lock checks in the planning evidence describe earlier
+application-source observations only.
 
 Central documentation registry admission is pending. Local verification does not
 claim a passed ecosystem-wide compliance gate.
@@ -207,7 +227,7 @@ Canonical facts state ownership and boundaries. Snapshot facts carry an observat
 date. Planned capabilities say they are not implemented. Change delivery status only
 when code and relevant verification support the claim.
 
-Before R1, read the reconciliation and exact scope. Before editing a consumer, refresh
+R1 contracts are implemented; read the reconciliation, package API and result before R2. Before editing a consumer, refresh
 its baseline and read its own agent instructions. Preserve existing UGA/NextAction
 logic, source provenance and backend clearance. No application runtime can currently
 be launched from this repository.

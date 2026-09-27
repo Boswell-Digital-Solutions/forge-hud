@@ -31,8 +31,9 @@
 Repository: `Boswell-Digital-Solutions/forge-hud`.
 
 ForgeHUD is a shared governance-presentation library for Forge applications.
-Current code snapshot — 2026-09-27: canonical documentation and implementation
-planning are present; runtime packages are planned, not implemented.
+Current code snapshot — 2026-09-27: the private [R1 package](forge-hud-svelte/README.md)
+implements projection/profile validation, motion contracts and tokens. Svelte
+components and live application integration remain planned.
 
 ## Documentation Contract
 
@@ -52,7 +53,9 @@ bash doc/system/BUILD.sh
 python3 scripts/check_docs.py
 ```
 
-No package installation is required. There is no runtime startup command yet.
+Documentation needs no package installation. For R1, run `npm ci --ignore-scripts`,
+`npm run check`, `npm test` and `npm run build` in `forge-hud-svelte/`.
+There is no application startup command yet.
 Prefix `fhd` and the documentation surface await central Forge registry admission;
 local documentation checks do not claim ecosystem-wide certification.
 
@@ -63,7 +66,7 @@ local documentation checks do not claim ecosystem-wide certification.
 - [Source evidence manifest](docs/plans/forge-ui-grammar/evidence/source-lock.json)
 - [Documentation metadata](doc/documentation-manifest.json)
 
-The first planned runtime delivery is `forge-hud-svelte`. Backend extraction,
+The first contract delivery is `forge-hud-svelte`; see the [R1 results](docs/plans/forge-ui-grammar/R1-RESULT.md). Backend extraction,
 receipt signing and advanced fatigue work remain later roadmap slices. Source
 snapshot paths in the evidence manifest refer to the originating task-local CP0
 packet, not source code shipped by this repository.
