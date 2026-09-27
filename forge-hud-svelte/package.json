@@ -1,0 +1,40 @@
+{
+  "name": "@forgehud/svelte",
+  "version": "0.1.0",
+  "private": true,
+  "description": "ForgeHUD presentation contracts; R1 foundation, no UI components yet",
+  "type": "module",
+  "files": [
+    "dist",
+    "README.md",
+    "docs"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./theme.css": "./dist/theme/grammar.css"
+  },
+  "sideEffects": [
+    "**/*.css"
+  ],
+  "engines": {
+    "node": ">=20.19"
+  },
+  "peerDependencies": {
+    "svelte": "^5.0.0"
+  },
+  "scripts": {
+    "check": "tsc --noEmit",
+    "test": "vitest run",
+    "build": "tsc && node --input-type=module -e \"import {mkdirSync,copyFileSync} from 'node:fs'; mkdirSync('dist/theme',{recursive:true}); copyFileSync('src/theme/grammar.css','dist/theme/grammar.css');\""
+  },
+  "devDependencies": {
+    "@types/node": "^20.19.43",
+    "svelte": "^5.57.1",
+    "typescript": "^5.9.3",
+    "vite": "^7.3.6",
+    "vitest": "^4.1.11"
+  }
+}

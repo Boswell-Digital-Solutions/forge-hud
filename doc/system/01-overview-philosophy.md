@@ -5,13 +5,15 @@ ForgeHUD is the shared governance-presentation toolkit owned by
 with existing operational state and governed user actions.
 
 Current code snapshot — 2026-09-27: this repository contains documentation,
-implementation planning and source-evidence metadata. No Svelte package, Rust crate,
-CLI, runtime service or published artifact exists in this checkout.
+planning evidence and the private `forge-hud-svelte` R1 TypeScript package. It provides
+projection/profile validation, display models, motion contracts and scoped CSS.
+No Svelte components, Rust crate, CLI, live application integration or published artifact
+exists yet.
 
 The repository owns the portable presentation contract. It does not own application
 business state, approval authority, canonical operational memory or evidence signing.
 Visual state must reflect reported truth. A profile may change wording and density,
 but must never turn blocked into success or human-required into automatic.
 
-The initial planned package is `forge-hud-svelte`. UI Grammar is part of that package,
+The initial package is `forge-hud-svelte`. UI Grammar is part of that package,
 not a competing toolkit. Later Rust and CLI work remains planned, not implemented.

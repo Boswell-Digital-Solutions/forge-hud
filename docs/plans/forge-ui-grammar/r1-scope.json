@@ -31,7 +31,7 @@
     "forge-hud-svelte/docs/accessibility-matrix.md",
     "forge-hud-svelte/README.md"
   ],
-  "runtime_implementation_started": false,
+  "runtime_implementation_started": true,
   "first_slice_dependency": "existing application contracts used only as pinned fixtures",
   "deferred_integration_prerequisites": {
     "tarcie": "Select capture donor versus reviewer repository before live adoption",
@@ -45,5 +45,15 @@
     "Existing UGA and NextAction resolution",
     "Existing emergency halt and backend clearance"
   ],
-  "supersedes": "cp1-scope.original.json empty global allowlist; historical source evidence unchanged"
+  "supersedes": "cp1-scope.original.json empty global allowlist; historical source evidence unchanged",
+  "implementation_stage": "R1 contracts; components and app adapters remain later slices",
+  "maintenance_paths": [
+    ".gitignore",
+    "README.md",
+    "doc/system/*.md",
+    "doc/fhdSYSTEM.md",
+    "doc/documentation-manifest.json",
+    "docs/plans/forge-ui-grammar/R1-RESULT.md",
+    "docs/plans/forge-ui-grammar/r1-scope.json"
+  ]
 }

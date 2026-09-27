@@ -1,0 +1,46 @@
+{
+  "provenance": {
+    "kind": "synthetic-fixture",
+    "sourceRevision": "422f070229dc9dacc8d9f7aa2538f45540312d55",
+    "sourcePath": "apps/frontend/src/lib/hud/types.ts",
+    "note": "Vocabulary grounded in pinned source when provided; channel values are synthetic. No action authority."
+  },
+  "profile": {
+    "id": "authorforge",
+    "language": "plain",
+    "density": "calm",
+    "contrast": "standard",
+    "motion": "standard",
+    "sourceAccent": "#38bdf8"
+  },
+  "mapping": {
+    "version": 1,
+    "owner": "authorforge",
+    "mappings": [
+      {
+        "source": "authorforge",
+        "context": "emergency",
+        "nativeState": "SYSTEM_HALT",
+        "role": "halted"
+      }
+    ]
+  },
+  "snapshot": {
+    "source": "authorforge",
+    "context": "emergency",
+    "nativeState": "SYSTEM_HALT",
+    "observedAt": "2026-09-27T12:00:00.000Z",
+    "severity": "critical",
+    "authority": "unavailable",
+    "evidence": "unverified",
+    "freshness": "current",
+    "locked": true,
+    "simulation": true,
+    "reason": "Execution fixture from the pinned pipeline vocabulary.",
+    "allowedActionIds": [],
+    "emergencyHalt": {
+      "source": "SYSTEM_HALT",
+      "reason": "Simulated explicit backend halt."
+    }
+  }
+}

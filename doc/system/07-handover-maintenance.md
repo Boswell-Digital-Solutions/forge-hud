@@ -8,7 +8,7 @@ Canonical facts state ownership and boundaries. Snapshot facts carry an observat
 date. Planned capabilities say they are not implemented. Change delivery status only
 when code and relevant verification support the claim.
 
-Before R1, read the reconciliation and exact scope. Before editing a consumer, refresh
+R1 contracts are implemented; read the reconciliation, package API and result before R2. Before editing a consumer, refresh
 its baseline and read its own agent instructions. Preserve existing UGA/NextAction
 logic, source provenance and backend clearance. No application runtime can currently
 be launched from this repository.

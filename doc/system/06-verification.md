@@ -12,14 +12,24 @@ in lexical order with fixed separators. It writes only `doc/fhdSYSTEM.md` and in
 no generated timestamp. The checker rejects stale assembled output, malformed chapter
 names, missing TOC entries and broken relative Markdown links in repository documents.
 
-For an implementation slice, add behavior-focused tests with its code. Planned proof
+Package verification (run in `forge-hud-svelte/`):
+
+```bash
+npm ci --ignore-scripts
+npm run check
+npm test
+npm run build
+```
+
+R1 has behavior-focused contract tests and a built-package import check. Further proof
 includes unknown inputs, locked-but-working, approval versus emergency halt, persistent
 degradation, source/severity separation, timer suppression, keyboard/focus behavior,
 reduced motion, high contrast and equivalent meaning across skins.
 
-No runtime tests, screen-reader proof, visual regression matrix, release build or
-package-size measurement has been executed for ForgeHUD. Source-lock checks in the
-planning evidence describe earlier application-source observations only.
+R1 validation results are recorded in `docs/plans/forge-ui-grammar/R1-RESULT.md`.
+No screen-reader proof, rendered visual regression matrix or live application
+integration is claimed. Source-lock checks in the planning evidence describe earlier
+application-source observations only.
 
 Central documentation registry admission is pending. Local verification does not
 claim a passed ecosystem-wide compliance gate.

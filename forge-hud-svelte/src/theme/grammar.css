@@ -1,0 +1,54 @@
+/* Presentation tokens only. No global resets or automatic status animation. */
+.forge-ui {
+  --forge-ui-surface-base: #111418;
+  --forge-ui-surface-raised: #1e2330;
+  --forge-ui-surface-border: #64748b;
+  --forge-ui-text-primary: #f8fafc;
+  --forge-ui-text-secondary: #cbd5e1;
+  --forge-ui-semantic-neutral: #cbd5e1;
+  --forge-ui-semantic-active: #7dd3fc;
+  --forge-ui-semantic-healthy: #6ee7b7;
+  --forge-ui-semantic-attention: #fbbf24;
+  --forge-ui-semantic-blocked: #fdba74;
+  --forge-ui-semantic-critical: #fda4af;
+  --forge-ui-semantic-complete: #6ee7b7;
+  --forge-ui-semantic-degraded: #fbbf24;
+  --forge-ui-semantic-unavailable: #cbd5e1;
+  --forge-ui-source-accent: #38bdf8;
+  --forge-ui-evidence-unverified: #cbd5e1;
+  --forge-ui-evidence-verifying: #7dd3fc;
+  --forge-ui-evidence-verified: #6ee7b7;
+  --forge-ui-evidence-stale: #fbbf24;
+  --forge-ui-evidence-conflicted: #fdba74;
+  --forge-ui-evidence-invalid: #fda4af;
+  --forge-ui-authority-human-required: #fbbf24;
+  --forge-ui-authority-backend-cleared: #6ee7b7;
+  --forge-ui-authority-automatic: #cbd5e1;
+  --forge-ui-authority-unavailable: #cbd5e1;
+  --forge-ui-motion-execution: 1600ms;
+  --forge-ui-motion-scanning: 2200ms;
+  --forge-ui-motion-verification: 2800ms;
+  --forge-ui-motion-orchestration: 2400ms;
+  --forge-ui-motion-authority: 3600ms;
+  --forge-ui-motion-primed: 4000ms;
+  --forge-ui-motion-arrival: 180ms;
+  --forge-ui-density-gap: 0.75rem;
+  --forge-ui-density-padding: 0.75rem;
+}
+.forge-ui[data-density="compact"] { --forge-ui-density-gap: 0.375rem; --forge-ui-density-padding: 0.5rem; }
+.forge-ui[data-density="calm"] { --forge-ui-density-gap: 1rem; --forge-ui-density-padding: 1rem; }
+.forge-ui[data-contrast="high"] {
+  --forge-ui-surface-base: #000;
+  --forge-ui-surface-raised: #000;
+  --forge-ui-surface-border: #fff;
+  --forge-ui-text-primary: #fff;
+  --forge-ui-text-secondary: #fff;
+}
+@media (forced-colors: active) {
+  .forge-ui { --forge-ui-surface-base: Canvas; --forge-ui-surface-raised: Canvas; --forge-ui-surface-border: CanvasText; --forge-ui-text-primary: CanvasText; --forge-ui-text-secondary: CanvasText; }
+}
+/* R2 motion-bearing elements opt in. Labels/icons must remain outside this hook. */
+.forge-ui[data-motion="reduced"] [data-forge-motion] { animation: none !important; transition: none !important; }
+@media (prefers-reduced-motion: reduce) {
+  .forge-ui [data-forge-motion] { animation: none !important; transition: none !important; }
+}

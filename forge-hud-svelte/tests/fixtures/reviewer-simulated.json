@@ -1,0 +1,42 @@
+{
+  "provenance": {
+    "kind": "synthetic-fixture",
+    "sourceRevision": null,
+    "sourcePath": null,
+    "note": "Vocabulary grounded in pinned source when provided; channel values are synthetic. No action authority."
+  },
+  "profile": {
+    "id": "reviewer",
+    "language": "plain",
+    "density": "standard",
+    "contrast": "standard",
+    "motion": "standard",
+    "sourceAccent": "#38bdf8"
+  },
+  "mapping": {
+    "version": 1,
+    "owner": "reviewer-simulated",
+    "mappings": [
+      {
+        "source": "reviewer-simulated",
+        "context": "fixture",
+        "nativeState": "CHECKING",
+        "role": "verifying"
+      }
+    ]
+  },
+  "snapshot": {
+    "source": "reviewer-simulated",
+    "context": "fixture",
+    "nativeState": "CHECKING",
+    "observedAt": "2026-09-27T12:00:00.000Z",
+    "severity": "neutral",
+    "authority": "automatic",
+    "evidence": "verifying",
+    "freshness": "current",
+    "locked": true,
+    "simulation": true,
+    "reason": "Synthetic review profile; no Tarcie runtime is bound.",
+    "allowedActionIds": []
+  }
+}

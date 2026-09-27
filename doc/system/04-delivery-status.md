@@ -1,8 +1,9 @@
 ## 4. Delivery status and plan relationship
 
-Current audited snapshot — 2026-09-27: documentation and reconciliation are present;
-runtime implementation and consumer migration have not started. Documentation build
-success is not runtime acceptance or completion of GATE-00.
+Current audited snapshot — 2026-09-27: R1 package contracts, validation, profiles,
+motion data, scoped tokens and tests are implemented locally. Consumer migration
+and rendered UI have not started. Documentation build success is not runtime or
+full GATE-00 acceptance.
 
 The authoritative local work breakdown is the reconciled plan under
 `docs/plans/forge-ui-grammar/RECONCILED-PLAN.md`; its R1 scope lists the initial package
@@ -11,7 +12,7 @@ files. The source Google Doc has not been edited by this repository setup.
 | Stage | Intended result | Status |
 | --- | --- | --- |
 | R0 | Source inventory and reconciliation | Local planning evidence recorded; historical full-scope GATE-00 remains unresolved |
-| R1 | Svelte package, projection/profile validation, tokens and motion contract | Planned, not implemented |
+| R1 | Svelte package, projection/profile validation, tokens and motion contract | Implemented and locally verified; no components or live consumer yet |
 | R2 | Four proof surfaces and explicitly simulated showcase | Planned, not implemented |
 | R3 | Bounded HUD presentation adapters | Planned, not implemented |
 | R4 | SMITH and Forge Command operator pilots | Planned, not implemented |

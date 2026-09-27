@@ -1,12 +1,12 @@
 # ForgeHUD — System Documentation
 
-> Shared governance presentation toolkit; current checkout is documentation-only.
+> Shared governance presentation toolkit; R1 presentation contracts implemented; rendered UI remains planned.
 
 Protocol: BDS Documentation Protocol v2.0. Document version: 0.1.
 Last updated: 2026-09-27.
 
 This is the canonical repository-local deep reference. Ownership and invariants are
-normative; dated observations are snapshots; runtime architecture is explicitly
+normative; dated observations are snapshots; R1 data contracts are implemented; UI and consumer integrations remain
 planned, not implemented. This library has no resident service or startup endpoint.
 
 Generated output: `doc/fhdSYSTEM.md`. Prefix `fhd` is locally selected; central
