@@ -7,7 +7,7 @@
   } = $props();
 </script>
 <section class="forge-ui forge-next-action" aria-label="Next action">
-  <ForgeStatusCapsule model={hud.model} {announce} accessibleLabel="Next action process status" />
+  <ForgeStatusCapsule model={hud.model} activity={hud.activity ?? null} {announce} accessibleLabel="Next action process status" />
   {#each hud.configurationIssues as issue}<p>{issue}</p>{/each}
   <ForgeAuthorityGate model={hud.model} actions={hud.actions} {...(onrequest ? { onrequest } : {})} />
 </section>

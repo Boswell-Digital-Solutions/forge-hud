@@ -14,3 +14,7 @@ export { default as ForgeHudFooter } from './components/ForgeHudFooter.svelte';
 export { default as ForgeHudRail } from './components/ForgeHudRail.svelte';
 export { default as ForgeLockIndicator } from './components/ForgeLockIndicator.svelte';
 export { default as ForgeNextAction } from './components/ForgeNextAction.svelte';
+
+export { default as ForgeBackendActivity } from './components/ForgeBackendActivity.svelte';
+export { activityState, PROVIDERS } from './adapters/activity.js';
+export type { BackendActivity, ProviderId } from './adapters/activity.js';

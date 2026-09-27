@@ -11,7 +11,7 @@
   data-severity={hud.model.severity} aria-label="HUD footer">
   {#if hud.model.simulation}<strong class="forge-simulation">Simulated</strong>{/if}
   <span>{hud.model.source?.id ?? 'Unknown source'} / {hud.model.source?.context ?? 'Unknown context'}</span>
-  <ForgeProcessGlyph model={hud.model} />
+  <ForgeProcessGlyph model={hud.model} activity={hud.activity ?? null} />
   <ForgeLockIndicator model={hud.model} />
   <span>Severity: {hud.model.severity}</span>
   <span>Evidence: {hud.model.evidence} · Freshness: {hud.model.freshness}</span>

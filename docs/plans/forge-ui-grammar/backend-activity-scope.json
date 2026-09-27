@@ -1,0 +1,32 @@
+{
+  "purpose": "Approved backend identity, provider icons and activity status design",
+  "allowlist": [
+    "docs/plans/forge-ui-grammar/BACKEND-ACTIVITY.md",
+    "docs/plans/forge-ui-grammar/backend-activity-scope.json",
+    "forge-hud-svelte/README.md",
+    "forge-hud-svelte/docs/backend-activity.md",
+    "forge-hud-svelte/showcase/Adapters.svelte",
+    "forge-hud-svelte/showcase/workspace.css",
+    "forge-hud-svelte/src/adapters/activity.ts",
+    "forge-hud-svelte/src/adapters/hud.ts",
+    "forge-hud-svelte/src/assets/providers/LICENSE",
+    "forge-hud-svelte/src/assets/providers/NOTICE.md",
+    "forge-hud-svelte/src/assets/providers/anthropic.svg",
+    "forge-hud-svelte/src/assets/providers/deepseek-color.svg",
+    "forge-hud-svelte/src/assets/providers/gemini-color.svg",
+    "forge-hud-svelte/src/assets/providers/grok.svg",
+    "forge-hud-svelte/src/assets/providers/openai.svg",
+    "forge-hud-svelte/src/components/ForgeBackendActivity.svelte",
+    "forge-hud-svelte/src/components/ForgeHudFooter.svelte",
+    "forge-hud-svelte/src/components/ForgeHudRail.svelte",
+    "forge-hud-svelte/src/components/ForgeNextAction.svelte",
+    "forge-hud-svelte/src/components/ForgeProcessGlyph.svelte",
+    "forge-hud-svelte/src/components/ForgeStatusCapsule.svelte",
+    "forge-hud-svelte/src/index.ts",
+    "forge-hud-svelte/tests/activity.test.ts",
+    "forge-hud-svelte/tests/browser/adapters.spec.ts",
+    "forge-hud-svelte/tests/browser/adapters.spec.ts-snapshots/dark-linux.png",
+    "forge-hud-svelte/tests/browser/adapters.spec.ts-snapshots/operator-linux.png",
+    "forge-hud-svelte/tests/browser/adapters.spec.ts-snapshots/plain-linux.png"
+  ]
+}
