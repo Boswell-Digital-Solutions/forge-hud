@@ -1,3 +1,5 @@
+import { parseActivity } from './activity.js';
+import type { BackendActivity } from './activity.js';
 import { projectState } from '../grammar/validate.js';
 import type { DisplayModel } from '../grammar/types.js';
 
@@ -9,9 +11,11 @@ export interface HudInput {
   /** Display metadata only, never used to select actions or authorize requests. */
   sessionLabel?: unknown;
   actions?: unknown;
+  activity?: unknown;
 }
 export interface HudPresentation {
   model: DisplayModel;
+  activity?: BackendActivity | null;
   sessionLabel: string | null;
   actions: HudAction[];
   configurationIssues: string[];
@@ -28,6 +32,8 @@ export function projectHud(input: HudInput): HudPresentation {
     if (text(input.sessionLabel)) sessionLabel = input.sessionLabel;
     else configurationIssues.push('Session label must be nonempty text.');
   }
+  const activity = input.activity == null ? null : parseActivity(input.activity);
+  if (input.activity != null && !activity) configurationIssues.push('Invalid backend activity metadata.');
   const actions: HudAction[] = [];
   const ids = new Set<string>();
   if (input.actions !== undefined) {
@@ -47,5 +53,5 @@ export function projectHud(input: HudInput): HudPresentation {
     }
   }
   // Malformed display metadata cannot leave a partially usable action list.
-  return { model, sessionLabel, actions: configurationIssues.length ? [] : actions, configurationIssues };
+  return { model, activity, sessionLabel, actions: configurationIssues.length ? [] : actions, configurationIssues };
 }

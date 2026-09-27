@@ -108,3 +108,12 @@ R3 adds `projectHud`, `ForgeHudFooter`, `ForgeHudRail`, `ForgeLockIndicator` and
 `ForgeNextAction`. See the [adapter contract](docs/hud-adapters.md). Run `npm run dev`
 and open `/adapters.html` for the two-contract, two-skin proof. These are portable
 presentation interfaces; no live application bindings are included.
+
+## Backend activity
+
+Optional producer-owned `activity` metadata adds Yellowjacket's five-bee formation
+or NeuroForge's rotor, a stationary provider icon and status color treatments to
+HUD surfaces. See [backend activity](docs/backend-activity.md) for the contract,
+state precedence, reduced-motion behavior and provider asset provenance.
+The workspace preview at `/adapters.html` includes backend, provider and state
+controls. These are simulated; no backend telemetry or consumer rollout is implied.
