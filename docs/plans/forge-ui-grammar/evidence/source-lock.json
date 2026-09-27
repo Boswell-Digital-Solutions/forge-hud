@@ -472,6 +472,13 @@
       "worktrees": "/home/charlie/Forge                                                                                                       cb86b02b [docs/reconcile-followup]\n/home/charlie/.codex/.chatgpt-projects/g-p-69e940d828448191a0e48c14122df12d/forge-pr217                                   1b5b7852 [fix/pr217-reconcile]\n/tmp/claude-1000/-home-charlie-Forge-ecosystem/18e49779-1d70-4051-8b01-ee024fd4533e/scratchpad/forge-atlas-03-003-verify  f1623bcc [atlas-03-003-verification]\n/tmp/forge-worktrees/atlas-02-003                                                                                         4575a812 [atlas-03-scout]\n/tmp/forge-worktrees/atlas-03-003-a023-ratify                                                                             b6e3e573 [atlas-03-003-a023-ratify]\n/tmp/forge-worktrees/atlas-03-004                                                                                         f40eca25 [atlas-03-004-boundary-qualification]\n/tmp/forge-worktrees/atlas-rebaseline-002                                                                                 203d0716 [main]"
     }
   },
+  "repository_copy_note": "Metadata copies have trailing blank lines normalized. artifact_hashes preserve the original task exports; repository_metadata_hashes identify these normalized copies. Snapshot paths and original text exports remain in the task-local CP0 packet.",
+  "repository_metadata_hashes": {
+    "enhanced-metadata.json": "dce8bbad89191f0d7a1d9c77036a38b6000678bdf9cc20db12fe1f7b4a83d7db",
+    "plan-source-metadata.json": "a7190b75c884e33c86da2a40a9946cdfd550be0ecba1ffd2a51e08776e1851af",
+    "portable-metadata.json": "26693e6734824e150f4f0c24a38b72e1634a4c677fec6725af71e6efe2aa73cc",
+    "smithspec-metadata.json": "2659f90637dc6cc2e2b18ae39c70c46d50eedd10910c5df27832a9167d46a4b5"
+  },
   "schema": "bds.forge-ui-grammar.cp0.source-lock.v1",
   "sources": [
     {
