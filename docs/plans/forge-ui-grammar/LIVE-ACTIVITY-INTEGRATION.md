@@ -130,3 +130,43 @@ Remaining: attach the adapter in actual request-owning consumers, producer-start
 and heartbeat evidence, authorized read/replay delivery for observers, and real
 service acceptance. This request-local bridge does not satisfy the separate
 scope-wide snapshot/update transport contract or establish public-app access.
+
+## Adapter attachment — done, credential-gated (verified 2026-09-28)
+
+The "attach the adapter" item above is implemented and merged, not still open.
+Confirmed directly against the merged commits, not assumed from PR titles:
+
+- [Forge-Agents PR #123](https://github.com/Boswell-Digital-Solutions/Forge-Agents/pull/123)
+  (merged `2026-09-27T09:12:58Z`) scopes SMITH execution sessions to a service
+  key and forwards NeuroForge's `started`/`model_selected`/`chunk`/`metrics`/
+  `completed`/`error` events over its own `GET /api/v1/bds/execution/{id}/stream`.
+  This is the actual request-owning consumer: `Forge-Agents/app/bds/neuroforge_client.py`
+  calls NeuroForge's `POST /api/v1/execute/generate/stream` and
+  `app/bds/sessions/execution.py`'s PAORT "ACT" stage re-emits each event
+  incrementally, not buffered.
+- [forge-smithy PR #147](https://github.com/Boswell-Digital-Solutions/forge-smithy/pull/147)
+  (merged `2026-09-27T09:13:14Z`, depends on the above) mounts `ExecutionActivity.svelte`
+  on the production `/execution` route. `src/lib/services/executionService.ts`
+  opens the Forge-Agents SSE stream via the authenticated Tauri broker and feeds
+  each event into `executionActivity.svelte.ts`, which wraps this repository's
+  own `createNeuroForgeStream` adapter (vendored, pinned to `b03e03e`). No
+  frontend calls NeuroForge directly — the chain is UI → Forge-Agents SSE relay →
+  NeuroForge SSE, three hops, exactly as `neuroforge_client.py` intends it.
+- A fourth PR (native-execution-credential bridge, see
+  `forge-smithy/docs/native-execution-credential.md`) adds the dedicated
+  ForgeCommand-native credential path this attachment requires
+  (`POST /fc/broker/smith/execution-credential`, encrypted to a dedicated
+  `forgeagents_smith_execution` vault slot).
+
+**All of this is source/component and mocked-transport acceptance only — no
+live provider call was made by any of the three PRs.** Real activation needs,
+in order: (1) issue a Forge-Agents key with `service_name=forge-smithy`,
+`scopes=[bds:execution]`; (2) import it via ForgeCommand's native
+`forge keys import-smith-execution`; (3) `~/.forge-command` must be mode 700
+(a live readiness check observed 775 — this must be corrected first, it is a
+real, disclosed finding, not fixed by this or any of the three PRs); (4) start
+the updated ForgeCommand desktop app so native discovery is published. None of
+these four steps touch this repository or its consumers' source — they are
+operator-owned credential/deployment actions, out of scope for further PRs
+here. Until they happen, the execution-page HUD attachment renders correctly
+against real code paths but never receives a real live event.
