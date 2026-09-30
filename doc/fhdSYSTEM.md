@@ -1,13 +1,14 @@
 # ForgeHUD — System Documentation
 
-> Shared governance presentation toolkit; R1 presentation contracts implemented; rendered UI remains planned.
+> Shared governance presentation toolkit; R1–R3 components and default-off R4 consumer pilots implemented.
 
 Protocol: BDS Documentation Protocol v2.0. Document version: 0.1.
-Last updated: 2026-09-27.
+Last updated: 2026-09-30.
 
 This is the canonical repository-local deep reference. Ownership and invariants are
-normative; dated observations are snapshots; R1 data contracts are implemented; UI and consumer integrations remain
-planned, not implemented. This library has no resident service or startup endpoint.
+normative; dated observations are snapshots. The Svelte package and default-off
+SMITH/Forge Command consumer pilots are implemented; rollout acceptance remains
+open. This library has no resident service or startup endpoint.
 
 Generated output: `doc/fhdSYSTEM.md`. Prefix `fhd` is locally selected; central
 registration is pending. Edit source chapters, not the assembled artifact.
@@ -122,9 +123,10 @@ missing source files in this repo and must not be treated as locally executable 
 
 ## 4. Delivery status and plan relationship
 
-Current audited snapshot — 2026-09-27: R1 contracts, R2 Svelte primitives and R3
-single-context HUD adapters with simulated Chromium proof are implemented. Default-off Command and SMITH pilot branches now bind existing renderer stores;
-live operator acceptance is still open.
+Current audited snapshot — 2026-09-30: R1 contracts, R2 Svelte primitives and R3
+single-context HUD adapters are implemented. Default-off Command and SMITH
+pilots bind existing renderer stores. Both native mounts were observed in
+disposable flag-enabled runs; rollout acceptance is still open.
 Human screen-reader review remains open before live adoption. Documentation build success is not runtime or
 full GATE-00 acceptance.
 
@@ -138,7 +140,7 @@ files. The source Google Doc has not been edited by this repository setup.
 | R1 | Svelte package, projection/profile validation, tokens and motion contract | Merged and locally verified |
 | R2 | Four proof surfaces and explicitly simulated showcase | Implemented with automated browser proof; human screen-reader review pending |
 | R3 | Bounded HUD presentation adapters | Implemented with two source contracts and two skins; no live store bindings |
-| R4 | SMITH and Forge Command operator pilots | Default-off read-only integrations implemented in consumer PRs; live/native and human screen-reader acceptance pending |
+| R4 | SMITH and Forge Command operator pilots | Default-off read-only integrations implemented; native idle/stale states observed; transition, human screen-reader and rollout acceptance pending |
 | R5 | AuthorForge creator proof and reviewer profile | Planned, not implemented |
 | R6 | Regression evidence and bounded rollout | Planned, not implemented |
 | R7 | Remaining backend, evidence, fatigue, multi-context and CLI work | Planned, not implemented |
@@ -224,9 +226,11 @@ Chromium tests; R3 adds two-contract meaning, halt precedence, single announceme
 ownership, footer keyboard details, mobile layout and two adapter visual baselines.
 
 R4 consumer evidence is recorded in `docs/plans/forge-ui-grammar/R4-RESULT.md`.
-Both full Svelte checks and pilot-enabled production builds passed. Focused
-consumer tests total 60; two Chromium tests mount actual pilot components with
-producer doubles. These results do not establish live/native operator acceptance.
+The original pilot checks covered both consumers with focused tests and Chromium
+producer doubles. A later disposable native run observed SMITH's idle pilot and
+Command's stale decision pilot on the actual application routes. This establishes
+native mounting and those two renderer states, not complete transition or
+screen-reader acceptance.
 `python3 scripts/check_pilot_vendor.py /path/to/consumer` verifies the source
 distribution against its pinned upstream Git commit.
 

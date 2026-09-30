@@ -42,8 +42,10 @@ Chromium tests; R3 adds two-contract meaning, halt precedence, single announceme
 ownership, footer keyboard details, mobile layout and two adapter visual baselines.
 
 R4 consumer evidence is recorded in `docs/plans/forge-ui-grammar/R4-RESULT.md`.
-Both full Svelte checks and pilot-enabled production builds passed. Focused
-consumer tests total 60; two Chromium tests mount actual pilot components with
-producer doubles. These results do not establish live/native operator acceptance.
+The original pilot checks covered both consumers with focused tests and Chromium
+producer doubles. A later disposable native run observed SMITH's idle pilot and
+Command's stale decision pilot on the actual application routes. This establishes
+native mounting and those two renderer states, not complete transition or
+screen-reader acceptance.
 `python3 scripts/check_pilot_vendor.py /path/to/consumer` verifies the source
 distribution against its pinned upstream Git commit.
