@@ -106,12 +106,19 @@ from idle to **Working** with interaction locked, then **Complete**. Backend
 execution, terminal SSE, provider activity, and DataForge all completed. It also
 exposed two distinct status sources shown with the same generic name: the
 sticky header read the governed ledger as `IDLE` while the pilot read the
-local workflow as `Working`. [SMITH draft PR #156](https://github.com/Boswell-Digital-Solutions/forge-smithy/pull/156)
+local workflow as `Working`. [Merged SMITH PR #156](https://github.com/Boswell-Digital-Solutions/forge-smithy/pull/156)
 labels the header **Governed pipeline** and the pilot **Local workflow status**
 without changing either authority source. Its focused tests, flag-on/off browser
 checks, native idle spot check, builds, guards and policy checks passed. The
 screenshot here records the live working state before that text change; the
 SMITH PR carries its after screenshots.
+
+PR #156 merged into `master` at
+[`c867acc`](https://github.com/Boswell-Digital-Solutions/forge-smithy/commit/c867acc4bcc0018bb687803d9c52ee814f1485be).
+The tested source-label file tree matches merged `master`. This report's
+live-transition evidence and canonical status update merged in
+[ForgeHUD PR #16](https://github.com/Boswell-Digital-Solutions/forge-hud/pull/16)
+at [`1caf13e`](https://github.com/Boswell-Digital-Solutions/forge-hud/commit/1caf13efa1cbe8e20cfde3e8512321e98476ddfe).
 
 ![SMITH native R4 pilot: local execution working while governed ledger remains idle](r4-smith-native-working-before-label.png)
 
@@ -119,10 +126,18 @@ SMITH PR carries its after screenshots.
 
 R4 is implemented for opt-in evaluation, not fully accepted for rollout. Native
 mounting, a SMITH local working/locked/completed transition, and Command's stale
-queue state are now observed. A native pending-approval decision state, the
-governed-ledger/local-workflow relationship, human screen-reader review, and CI
-review remain open. The clearer SMITH labels are reviewable in draft PR #156;
-they are not yet merged.
+queue state are now observed. The SMITH source labels are merged, but whether
+local execution should advance the governed ledger remains an authority decision.
+A native Command pending-approval state and human screen-reader review remain
+open. On 2026-09-30, GitHub reported zero check runs for the SMITH PR #156 and
+ForgeHUD PR #16 merge commits and the Command commit used for native testing.
+It reported no checks on the original Command PR #365 or SMITH PR #145 pilot
+branches. A push Actions entry for the inspected
+[Command commit](https://github.com/Boswell-Digital-Solutions/Forge_Command/actions/runs/36706845278)
+and another for the [SMITH merge](https://github.com/Boswell-Digital-Solutions/forge-smithy/actions/runs/36711126784)
+ended in `startup_failure` with zero jobs, so neither ran validation. The cause
+is not established by the available run metadata. Hosted CI qualification
+remains open.
 Keep both defaults off until accepted. No source provides a new authenticated
 emergency-halt feed in this slice. R5 creator work remains separate; it must not be
 used to mark these acceptance items complete.

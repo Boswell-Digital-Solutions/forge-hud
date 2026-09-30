@@ -18,7 +18,7 @@ files. The source Google Doc has not been edited by this repository setup.
 | R1 | Svelte package, projection/profile validation, tokens and motion contract | Merged and locally verified |
 | R2 | Four proof surfaces and explicitly simulated showcase | Implemented with automated browser proof; human screen-reader review pending |
 | R3 | Bounded HUD presentation adapters | Implemented with two source contracts and two skins; no live store bindings |
-| R4 | SMITH and Forge Command operator pilots | Default-off read-only integrations implemented; SMITH local working/completed and Command stale states observed; source reconciliation, human screen-reader and rollout acceptance pending |
+| R4 | SMITH and Forge Command operator pilots | Default-off read-only integrations implemented; SMITH local working/completed and Command stale states observed; source labels merged, while ledger relationship, pending-approval native state, human screen-reader, CI and rollout acceptance remain open |
 | R5 | AuthorForge creator proof and reviewer profile | Planned, not implemented |
 | R6 | Regression evidence and bounded rollout | Planned, not implemented |
 | R7 | Remaining backend, evidence, fatigue, multi-context and CLI work | Planned, not implemented |
