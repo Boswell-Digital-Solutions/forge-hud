@@ -77,6 +77,9 @@ test('five bees, stationary provider icons, every activity state and provider', 
     await expect(page.getByRole('button', { name: 'Request decision review' })).toBeDisabled();
   }
   await expect(indicator).toContainText('Last reported:');
+  await page.getByLabel('LLM provider').selectOption('local');
+  await expect(indicator).toContainText('Local model');
+  await expect(indicator.locator('img')).toHaveCount(0);
   await page.getByLabel('LLM provider').selectOption('');
   await expect(indicator).toContainText('Unknown provider');
   await expect(indicator.locator('img')).toHaveCount(0);
