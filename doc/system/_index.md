@@ -1,13 +1,14 @@
 # ForgeHUD — System Documentation
 
-> Shared governance presentation toolkit; R1 presentation contracts implemented; rendered UI remains planned.
+> Shared governance presentation toolkit; R1–R3 components and default-off R4 consumer pilots implemented.
 
 Protocol: BDS Documentation Protocol v2.0. Document version: 0.1.
-Last updated: 2026-09-27.
+Last updated: 2026-09-30.
 
 This is the canonical repository-local deep reference. Ownership and invariants are
-normative; dated observations are snapshots; R1 data contracts are implemented; UI and consumer integrations remain
-planned, not implemented. This library has no resident service or startup endpoint.
+normative; dated observations are snapshots. The Svelte package and default-off
+SMITH/Forge Command consumer pilots are implemented; rollout acceptance remains
+open. This library has no resident service or startup endpoint.
 
 Generated output: `doc/fhdSYSTEM.md`. Prefix `fhd` is locally selected; central
 registration is pending. Edit source chapters, not the assembled artifact.

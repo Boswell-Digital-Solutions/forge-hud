@@ -9,8 +9,11 @@ Snapshot: 2026-09-27. R3 merge verified at `514481a`.
   one decision-status capsule inside the existing Cockpit slice, bound to
   `getDecisionsLaneState`. Existing Work navigation and approval controls remain.
 - [SMITH PR #145](https://github.com/Boswell-Digital-Solutions/forge-smithy/pull/145):
-  one pipeline-status capsule inside the Next Action card, bound to existing
-  pipeline/readiness stores. Existing UGA and remediation callbacks remain.
+  one pipeline-status capsule bound to existing pipeline/readiness stores.
+  [The mounting correction](https://github.com/Boswell-Digital-Solutions/forge-smithy/pull/146)
+  moved it into the production `AppViewport` below `PipelineHud`, because the
+  earlier Next Action card was not mounted. Existing UGA and remediation
+  callbacks remain.
 
 Both are off unless `VITE_FORGE_HUD_PILOT=true` at build/dev time. Neither produces
 allowed action IDs, changes authority rules, polls independently, or issues receipts.
@@ -51,10 +54,75 @@ used Node 20.19.6. No Rust changes were made or native qualification claimed.
 
 ![SMITH fixture: locked execution](r4-locked-working.png)
 
+## Native follow-up — 2026-09-30
+
+Task: verify the default-off R4 pilots on current native consumer mounts.
+Touched plane: business-local presentation and local test evidence. Business-local
+systems: SMITH and Forge Command. Public app-local systems: none. Cloud systems:
+none. External agent surface: Codex Tauri WebDriver and GitHub review. Data
+boundary: read-only renderer state in disposable profiles; no keys, decision
+contents or generated output retained. Authority owner: operators retain pilot
+activation and evidence acceptance. Evidence destination: this report and the
+two screenshots below. Cloud escalation: none. Human approval gate: no
+authority-changing action was performed; rollout acceptance remains human-owned.
+
+The flag-enabled SMITH frontend and native binary used the file tree merged at
+[`4f455a2`](https://github.com/Boswell-Digital-Solutions/forge-smithy/commit/4f455a258630f0625d91d5e4ee8fc57d703b7907).
+On the real native dashboard, one pilot appeared below `PipelineHud`. With a
+disposable profile lacking a ForgeAgents credential, it projected the actual
+idle pipeline state and unknown freshness, announced its source and status
+politely, and added no focusable controls. The separate ForgeAgents-auth banner
+remained visible. The native screenshot shows this initial state; it does not
+prove working, verifying or locked states in a live native session. The existing
+browser harness passed with the pilot flag both on and off.
+
+![SMITH native R4 pilot: idle with unknown freshness](r4-smith-native-idle.png)
+
+Forge Command used current `main` at
+[`93f6039`](https://github.com/Boswell-Digital-Solutions/Forge_Command/commit/93f60391bca89d29362718c54391db0798ed9b86).
+Its native Cockpit showed one decision pilot. In the disposable profile, the
+decision queue could not be confirmed, so both the existing lane badge and the
+pilot reported stale; the pilot projected `degraded`, explained the failed
+refresh, announced politely, and added no focusable controls. The existing
+operator desktop and dev server owned ports 8790 and 1420; this run used a
+disposable bridge on 18790 and a flag-enabled Vite server on 1422. The temporary
+Vite server denied fonts from a symlinked dependency cache, so this screenshot
+proves mount and status behavior but not final font fidelity. The focused
+Chromium pilot test also passed against current `main`.
+
+![Forge Command native R4 pilot: stale decision queue](r4-command-native-stale.png)
+
+Both native binaries compiled offline. SMITH's flag-enabled Vite build and
+service-worker generation completed; Command's flag-enabled production build
+completed. Native WebDriver checks verified one labeled pilot, status role,
+announcement, no pilot actions, and screenshots. These runs did not change the
+consumer repositories or the default-off flags. The disposable Command server
+and desktop were stopped after capture; the pre-existing 8790/1420 processes
+were not changed.
+
+An additional real native SMITH plan-to-execution run used the previously
+approved scoped local credentials and local Ollama provider. The pilot changed
+from idle to **Working** with interaction locked, then **Complete**. Backend
+execution, terminal SSE, provider activity, and DataForge all completed. It also
+exposed two distinct status sources shown with the same generic name: the
+sticky header read the governed ledger as `IDLE` while the pilot read the
+local workflow as `Working`. [SMITH draft PR #156](https://github.com/Boswell-Digital-Solutions/forge-smithy/pull/156)
+labels the header **Governed pipeline** and the pilot **Local workflow status**
+without changing either authority source. Its focused tests, flag-on/off browser
+checks, native idle spot check, builds, guards and policy checks passed. The
+screenshot here records the live working state before that text change; the
+SMITH PR carries its after screenshots.
+
+![SMITH native R4 pilot: local execution working while governed ledger remains idle](r4-smith-native-working-before-label.png)
+
 ## Acceptance still open
 
-R4 is implemented for opt-in evaluation, not fully accepted for rollout. Human
-screen-reader review, live/native operator verification and CI review remain open.
+R4 is implemented for opt-in evaluation, not fully accepted for rollout. Native
+mounting, a SMITH local working/locked/completed transition, and Command's stale
+queue state are now observed. A native pending-approval decision state, the
+governed-ledger/local-workflow relationship, human screen-reader review, and CI
+review remain open. The clearer SMITH labels are reviewable in draft PR #156;
+they are not yet merged.
 Keep both defaults off until accepted. No source provides a new authenticated
 emergency-halt feed in this slice. R5 creator work remains separate; it must not be
 used to mark these acceptance items complete.
