@@ -100,12 +100,29 @@ consumer repositories or the default-off flags. The disposable Command server
 and desktop were stopped after capture; the pre-existing 8790/1420 processes
 were not changed.
 
+An additional real native SMITH plan-to-execution run used the previously
+approved scoped local credentials and local Ollama provider. The pilot changed
+from idle to **Working** with interaction locked, then **Complete**. Backend
+execution, terminal SSE, provider activity, and DataForge all completed. It also
+exposed two distinct status sources shown with the same generic name: the
+sticky header read the governed ledger as `IDLE` while the pilot read the
+local workflow as `Working`. [SMITH draft PR #156](https://github.com/Boswell-Digital-Solutions/forge-smithy/pull/156)
+labels the header **Governed pipeline** and the pilot **Local workflow status**
+without changing either authority source. Its focused tests, flag-on/off browser
+checks, native idle spot check, builds, guards and policy checks passed. The
+screenshot here records the live working state before that text change; the
+SMITH PR carries its after screenshots.
+
+![SMITH native R4 pilot: local execution working while governed ledger remains idle](r4-smith-native-working-before-label.png)
+
 ## Acceptance still open
 
 R4 is implemented for opt-in evaluation, not fully accepted for rollout. Native
-mounting and one real store state in each consumer are now observed. A native
-pending-approval decision state, SMITH working/locked transitions for this
-specific pilot, human screen-reader review, and CI review remain open.
+mounting, a SMITH local working/locked/completed transition, and Command's stale
+queue state are now observed. A native pending-approval decision state, the
+governed-ledger/local-workflow relationship, human screen-reader review, and CI
+review remain open. The clearer SMITH labels are reviewable in draft PR #156;
+they are not yet merged.
 Keep both defaults off until accepted. No source provides a new authenticated
 emergency-halt feed in this slice. R5 creator work remains separate; it must not be
 used to mark these acceptance items complete.

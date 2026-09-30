@@ -126,7 +126,8 @@ missing source files in this repo and must not be treated as locally executable 
 Current audited snapshot — 2026-09-30: R1 contracts, R2 Svelte primitives and R3
 single-context HUD adapters are implemented. Default-off Command and SMITH
 pilots bind existing renderer stores. Both native mounts were observed in
-disposable flag-enabled runs; rollout acceptance is still open.
+disposable flag-enabled runs, including SMITH's local execution transition;
+rollout acceptance is still open.
 Human screen-reader review remains open before live adoption. Documentation build success is not runtime or
 full GATE-00 acceptance.
 
@@ -140,7 +141,7 @@ files. The source Google Doc has not been edited by this repository setup.
 | R1 | Svelte package, projection/profile validation, tokens and motion contract | Merged and locally verified |
 | R2 | Four proof surfaces and explicitly simulated showcase | Implemented with automated browser proof; human screen-reader review pending |
 | R3 | Bounded HUD presentation adapters | Implemented with two source contracts and two skins; no live store bindings |
-| R4 | SMITH and Forge Command operator pilots | Default-off read-only integrations implemented; native idle/stale states observed; transition, human screen-reader and rollout acceptance pending |
+| R4 | SMITH and Forge Command operator pilots | Default-off read-only integrations implemented; SMITH local working/completed and Command stale states observed; source reconciliation, human screen-reader and rollout acceptance pending |
 | R5 | AuthorForge creator proof and reviewer profile | Planned, not implemented |
 | R6 | Regression evidence and bounded rollout | Planned, not implemented |
 | R7 | Remaining backend, evidence, fatigue, multi-context and CLI work | Planned, not implemented |
@@ -228,9 +229,11 @@ ownership, footer keyboard details, mobile layout and two adapter visual baselin
 R4 consumer evidence is recorded in `docs/plans/forge-ui-grammar/R4-RESULT.md`.
 The original pilot checks covered both consumers with focused tests and Chromium
 producer doubles. A later disposable native run observed SMITH's idle pilot and
-Command's stale decision pilot on the actual application routes. This establishes
-native mounting and those two renderer states, not complete transition or
-screen-reader acceptance.
+Command's stale decision pilot on the actual application routes. A later live
+SMITH run observed the local pilot working and completing while the governed
+ledger remained idle; the distinct sources are now explicit in SMITH draft PR
+#156. These checks establish native mounting and selected renderer states, not
+governed-ledger equivalence or screen-reader acceptance.
 `python3 scripts/check_pilot_vendor.py /path/to/consumer` verifies the source
 distribution against its pinned upstream Git commit.
 
