@@ -236,7 +236,8 @@ ledger remained idle; the distinct sources are now explicit in merged SMITH PR
 governed-ledger equivalence or screen-reader acceptance. GitHub reported no
 check runs for the R4 commits inspected on 2026-09-30. The available Command
 and SMITH push Actions entries ended in `startup_failure` before jobs began,
-so hosted CI qualification remains open.
+which the operator reports is a billing issue. Hosted CI qualification remains
+open until the workflows run successfully.
 `python3 scripts/check_pilot_vendor.py /path/to/consumer` verifies the source
 distribution against its pinned upstream Git commit.
 
