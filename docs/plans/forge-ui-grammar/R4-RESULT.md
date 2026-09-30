@@ -90,6 +90,16 @@ Vite server denied fonts from a symlinked dependency cache, so this screenshot
 proves mount and status behavior but not final font fidelity. The focused
 Chromium pilot test also passed against current `main`.
 
+The production decision lane reads two Forge Command queues. Its
+`registry_list_pending_approvals` command requires a configured DataForge-Local
+PostgreSQL registry pool; a failed queue read produces `stale`, never a claim
+that the queue is empty. The browser producer-double fixture covers the
+`halt`/awaiting-authority projection, but it is not a native pending-item
+observation. A native pending-approval check needs a disposable Command profile
+connected to an isolated registry database containing a pending item, or a
+read-only observation of an existing operator queue. Neither was present in
+the native run recorded here.
+
 ![Forge Command native R4 pilot: stale decision queue](r4-command-native-stale.png)
 
 Both native binaries compiled offline. SMITH's flag-enabled Vite build and
@@ -136,8 +146,9 @@ branches. A push Actions entry for the inspected
 [Command commit](https://github.com/Boswell-Digital-Solutions/Forge_Command/actions/runs/36706845278)
 and another for the [SMITH merge](https://github.com/Boswell-Digital-Solutions/forge-smithy/actions/runs/36711126784)
 ended in `startup_failure` with zero jobs, so neither ran validation. The cause
-is not established by the available run metadata. Hosted CI qualification
-remains open.
+is not established by the available run metadata. The operator reported that
+the startup failure is a GitHub billing issue. Hosted CI qualification remains
+open until billing is restored and the relevant workflows run successfully.
 Keep both defaults off until accepted. No source provides a new authenticated
 emergency-halt feed in this slice. R5 creator work remains separate; it must not be
 used to mark these acceptance items complete.
