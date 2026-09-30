@@ -60,7 +60,7 @@ export function acceptObservation(previous: ActivityObservation | null, input: u
   }
   return event;
 }
-const aliases: Record<string, ProviderId> = { openai: 'openai', anthropic: 'anthropic', google: 'gemini', gemini: 'gemini', xai: 'grok', grok: 'grok', deepseek: 'deepseek' };
+const aliases: Record<string, ProviderId> = { openai: 'openai', anthropic: 'anthropic', google: 'gemini', gemini: 'gemini', xai: 'grok', grok: 'grok', deepseek: 'deepseek', ollama: 'local' };
 const roles = { queued: 'idle', routed: 'primed', executing: 'working', waiting: 'awaiting_authority', blocked: 'blocked', completed: 'complete', failed: 'failed', halted: 'halted' } as const;
 /** Time and connection posture are supplied by the consumer, never inferred from a spinner. */
 export function projectObservation(input: unknown, expected: ActivityScope, profile: unknown, clock: { nowMs: number; staleAfterMs: number; connected: boolean }): HudPresentation | null {

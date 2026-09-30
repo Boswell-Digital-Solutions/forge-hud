@@ -5,6 +5,7 @@ export const PROVIDERS = {
   grok: { label: 'Grok', icon: new URL('../assets/providers/grok.svg', import.meta.url).href },
   gemini: { label: 'Gemini', icon: new URL('../assets/providers/gemini-color.svg', import.meta.url).href },
   deepseek: { label: 'DeepSeek', icon: new URL('../assets/providers/deepseek-color.svg', import.meta.url).href },
+  local: { label: 'Local model', icon: null },
 } as const;
 export type ProviderId = keyof typeof PROVIDERS;
 /** Supplied by the producer for this snapshot, never inferred from source or role. */

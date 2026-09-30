@@ -39,8 +39,9 @@ describe('scoped activity display boundary', () => {
     expect(projectObservation(event, scope, smith.profile, { ...clock, nowMs: clock.nowMs + 30000 })!.model.freshness).toBe('stale');
     expect(projectObservation(event, scope, smith.profile, { ...clock, nowMs: clock.nowMs - 1 })!.model.freshness).toBe('unknown');
   });
-  it('does not assign a familiar logo to an unknown or local provider', () => {
-    expect(projectObservation({ ...event, provider: 'ollama' }, scope, smith.profile, clock)!.activity?.provider).toBeNull();
+  it('labels a reported local runtime without assigning a company logo', () => {
+    expect(projectObservation({ ...event, provider: 'ollama' }, scope, smith.profile, clock)!.activity?.provider).toBe('local');
+    expect(projectObservation({ ...event, provider: 'unrecognized' }, scope, smith.profile, clock)!.activity?.provider).toBeNull();
   });
   it('returns a detached scope and origin', () => {
     const copy = parseObservation(event)!;

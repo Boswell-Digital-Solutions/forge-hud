@@ -21,7 +21,7 @@
     {:else if identity?.backend === 'neuroforge'}
       <span class="ticks"></span><span class="sweep"></span>
     {/if}
-    <span class="provider-icon">{#if provider}<img src={provider.icon} alt="" />{:else}<span>?</span>{/if}</span>
+    <span class="provider-icon">{#if provider?.icon}<img src={provider.icon} alt="" />{:else if identity?.provider === 'local'}<span aria-hidden="true">⌂</span>{:else}<span>?</span>{/if}</span>
   </span>
   <span class="identity">
     {#if showStatus}<strong>{state.label}</strong>{/if}
